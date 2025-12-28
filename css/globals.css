@@ -45,6 +45,8 @@ section {
   scroll-margin-top: 60px;
 }
 
-button {
+button,
+a,
+input {
   -webkit-tap-highlight-color: transparent;
 }
