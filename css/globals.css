@@ -38,3 +38,9 @@ img {
   display: block;
   height: auto;
 }
+
+h2,
+h3,
+section {
+  scroll-margin-top: 60px;
+}

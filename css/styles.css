@@ -1,192 +1,310 @@
 /* ==========================================================================
-   3. HEADER (MORPHING / TRANSFORMER)
+   3. HEADER (MECHANICAL UNROLL)
    ========================================================================== */
+
+/* --- 1. РАЗВЕРНУТОЕ СОСТОЯНИЕ (Обычный режим) --- */
 .fixed-header {
   position: fixed;
-  top: 0;
-  right: 0;
-  left: 0;
+  top: 30px;
+  right: 30px; /* Жесткая привязка справа (Якорь) */
+
+  /* Ширина: 100% экрана минус отступы (30px слева + 30px справа) */
+  width: calc(100% - 60px);
   height: 80px;
   z-index: 1000;
 
+  /* Стили */
   background: var(--nav-bg);
-  backdrop-filter: blur(15px);
-  -webkit-backdrop-filter: blur(15px);
-  border-bottom: 1px solid var(--border-color);
-  border-radius: 0;
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid var(--border-color);
+  border-radius: 50px;
 
-  /* Анимация морфинга */
-  transition: width 0.6s cubic-bezier(0.83, 0, 0.17, 1),
-    height 0.6s cubic-bezier(0.83, 0, 0.17, 1), border-radius 0.6s ease,
-    background 0.4s ease, left 0.6s ease;
-  overflow: hidden;
+  /* Flex: Контент слева, Кнопка справа */
+  display: flex;
+  align-items: center;
+  justify-content: flex-end; /* Всё прижато к кнопке справа */
+
+  overflow: hidden; /* Скрывает ленту, когда она смотана */
+
+  /* АНИМАЦИЯ: Меняем только ширину */
+  transition: width 0.8s cubic-bezier(0.75, 0, 0.25, 1), border-radius 0.6s ease,
+    background 0.4s ease;
 }
 
-.header-inner {
-  max-width: 1600px;
+[data-theme="light"] .fixed-header {
+  background: rgba(255, 255, 255, 0.9);
+  border-color: rgba(0, 0, 0, 0.1);
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+}
+
+/* --- КОНТЕНТ (Лента) --- */
+.header-content-slide {
+  /* Занимает все место слева от кнопки */
+  flex-grow: 1;
   height: 100%;
-  margin: 0 auto;
-  padding: 0 2rem;
+
   display: flex;
   align-items: center;
   justify-content: space-between;
+
+  /* Отступы внутри ленты */
+  padding-left: 2rem;
+  padding-right: 1rem;
+
+  /* АНИМАЦИЯ КОНТЕНТА (Синхронно с шириной) */
   opacity: 1;
-  transition: opacity 0.3s ease 0.3s;
+  /* Контент на месте */
+  transform: translateX(0);
+
+  transition: opacity 0.3s ease 0.3s,
+    /* Появляется чуть позже, когда лента пошла */ transform 0.8s
+      cubic-bezier(0.75, 0, 0.25, 1); /* Едет вместе с шириной */
+
+  white-space: nowrap; /* Текст не ломается */
 }
 
 .header-logo {
   font-family: var(--font-mono);
-  color: var(--text-color);
-  font-size: 1.3rem;
   font-weight: 700;
+  font-size: 1.3rem;
+  color: var(--text-color);
 }
-
 .header-nav {
   display: flex;
   gap: 2rem;
 }
+
+/* Ссылки в меню */
 .header-nav a {
   color: var(--text-color);
   font-size: 0.95rem;
+  text-decoration: none;
   transition: color 0.3s ease;
+
+  /* Важно для позиционирования линии */
   position: relative;
+  padding-bottom: 5px; /* Отступ текста от линии */
 }
+
 .header-nav a:hover {
-  color: var(--secondary-color);
+  color: var(--secondary-color); /* Цвет текста при наведении */
 }
 
-.header-actions {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
+/* ЛИНИЯ-ТОЧКА СНИЗУ */
+.header-nav a::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+
+  /* Размеры */
+  width: 100%;
+  height: 3px; /* Толщина линии */
+  border-radius: 2px; /* Закругленные края (чтобы при сжатии была точкой) */
+
+  background-color: var(--secondary-color); /* Цвет линии */
+
+  /* МАГИЯ АНИМАЦИИ */
+  transform: scaleX(0); /* Изначально ширина 0 (сжата) */
+  transform-origin: center; /* Растет из центра */
+
+  transition: transform 0.3s cubic-bezier(0.65, 0, 0.35, 1);
 }
 
-/* Theme Switcher */
+/* При наведении растягиваем линию */
+.header-nav a:hover::after {
+  transform: scaleX(1); /* Растягивается до 100% */
+}
+
+/* Кнопка Contact с анимацией заливки */
+.header-btn {
+  position: relative;
+  padding: 0.6rem 1.5rem;
+
+  /* Цвета по умолчанию */
+  background: rgba(48, 54, 66, 0.6);
+  color: var(--primary-color);
+
+  border-radius: 30px;
+  font-size: 0.9rem;
+  font-weight: 700; /* Жирнее для читаемости на цветном фоне */
+
+  overflow: hidden; /* Скрываем слой заливки, пока он "за кадром" */
+  z-index: 1; /* Чтобы текст был поверх заливки */
+  transition: border-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+  white-space: nowrap;
+  text-decoration: none;
+  letter-spacing: 1px;
+}
+
+/* СЛОЙ ЗАЛИВКИ (Псевдоэлемент) */
+.header-btn::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+
+  /* Цвет заливки (Primary) */
+  background-color: var(--primary-color);
+
+  /* Изначально сдвинут вниз (скрыт) */
+  transform: translateY(101%);
+
+  /* Плавная анимация выезда */
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: -1; /* Помещаем ПОД текст */
+  border-radius: 30px;
+}
+
+/* Эффекты при наведении */
+.header-btn:hover {
+  border-color: var(--primary-color);
+  color: var(--bg-color); /* Текст меняется на цвет фона сайта (контраст) */
+  box-shadow: 0 5px 20px rgba(168, 213, 226, 0.3); /* Красивое свечение */
+}
+
+/* Заливка поднимается вверх */
+.header-btn:hover::before {
+  transform: translateY(0);
+}
+
+/* --- КНОПКА СМЕНЫ ТЕМЫ (Барабан) --- */
 .theme-switch {
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
+  /* Фиксированный размер */
+  width: 80px;
+  height: 80px;
+  flex-shrink: 0; /* Не сжимать ни при каких условиях */
+
   background: transparent;
-  border: 1px solid transparent;
+  border: none;
   color: var(--text-color);
+
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  transition: all 0.4s ease;
-  position: relative;
   z-index: 1002;
+
+  /* Анимация вращения барабана */
+  transform: rotate(-360deg); /* Развернут */
+  transition: transform 0.8s cubic-bezier(0.75, 0, 0.25, 1);
 }
 
-@media (hover: hover) {
-  .theme-switch:hover {
-    background: var(--accent-color);
-    transform: rotate(15deg);
-    color: var(--primary-color);
-  }
+/* --- АНИМАЦИЯ ИКОНОК (SUN <-> MOON) --- */
+.icon-wrapper {
+  position: relative;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-/* Icons */
-.sun-icon,
-.moon-icon {
+.theme-switch svg {
   position: absolute;
-  transition: transform 0.5s ease, opacity 0.5s ease;
-}
-.moon-icon {
-  opacity: 0;
-  transform: translateY(20px) rotate(90deg);
-}
-.sun-icon {
-  opacity: 1;
-  transform: translateY(0) rotate(0);
-}
-[data-theme="light"] .sun-icon {
-  opacity: 0;
-  transform: translateY(-20px) rotate(-90deg);
-}
-[data-theme="light"] .moon-icon {
-  opacity: 1;
-  transform: translateY(0) rotate(0);
-}
-
-/* Contact Btn */
-.header-btn {
-  padding: 0.6rem 1.2rem;
-  background: rgba(48, 54, 66, 0.6);
-  color: var(--primary-color);
-  border-radius: 8px;
-  font-family: var(--font-mono);
-  font-size: 0.9rem;
-  border: 1px solid transparent;
-  transition: var(--transition);
-}
-.header-btn:hover {
-  border-color: var(--primary-color);
-  background: rgba(168, 213, 226, 0.1);
-}
-
-/* --- HERO MODE (Collapsed State) --- */
-.fixed-header.hero-mode {
-  width: 80px;
-  height: 80px;
-  left: auto; /* Отцепляем от левого края */
-  border-radius: 0 0 0 30px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-  border-left: 1px solid rgba(255, 255, 255, 0.1);
-  background: rgba(15, 17, 21, 0.9);
-  box-shadow: -5px 5px 30px rgba(0, 0, 0, 0.3);
-}
-[data-theme="light"] .fixed-header.hero-mode {
-  background: rgba(255, 255, 255, 0.9);
-  border-color: rgba(0, 0, 0, 0.08);
-}
-
-.fixed-header.hero-mode .header-logo,
-.fixed-header.hero-mode .header-nav,
-.fixed-header.hero-mode .header-btn,
-.fixed-header.hero-mode .mobile-burger {
-  opacity: 0;
-  visibility: hidden;
-  pointer-events: none;
-  position: absolute;
-}
-
-.fixed-header.hero-mode .theme-switch {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 100%;
-  height: 100%;
-  border-radius: 0;
-}
-.fixed-header.hero-mode .theme-switch svg {
-  width: 28px;
-  height: 28px;
-  transform: translate(3px, 3px);
-}
-@media (hover: hover) {
-  .fixed-header.hero-mode:hover {
-    background: var(--accent-color);
-  }
-  .fixed-header.hero-mode:hover .theme-switch svg {
-    transform: translate(3px, 3px) rotate(90deg);
-  }
-}
-
-/* Mobile Menu Dropdown */
-.mobile-menu-dropdown {
-  position: absolute;
-  top: 100%;
+  top: 0;
   left: 0;
   width: 100%;
+  height: 100%;
+  /* Добавляем transform в транзишн */
+  transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.5s ease;
+}
+
+/* 1. DARK MODE (По умолчанию) */
+.sun-icon {
+  opacity: 1;
+  transform: rotate(0deg) scale(1);
+}
+
+.moon-icon {
+  opacity: 0;
+  /* Луна прячется: повернута и уменьшена */
+  transform: rotate(90deg) scale(0.5);
+}
+
+/* 2. LIGHT MODE (Активен) */
+[data-theme="light"] .sun-icon {
+  opacity: 0;
+  /* Солнце улетает: вращается в другую сторону и уменьшается */
+  transform: rotate(-90deg) scale(0.5);
+}
+
+[data-theme="light"] .moon-icon {
+  opacity: 1;
+  /* Луна появляется: встает ровно и увеличивается */
+  transform: rotate(0deg) scale(1);
+}
+
+/* =========================================
+   2. HERO MODE (СМОТАННОЕ СОСТОЯНИЕ)
+   ========================================= */
+
+.fixed-header.hero-mode {
+  /* Ширина равна высоте (только кнопка) */
+  width: 80px;
+
+  /* Превращаем в круг */
+  border-radius: 50%;
+
+  /* Темный фон кнопки */
+  background: rgba(15, 17, 21, 0.9);
+  border-color: rgba(255, 255, 255, 0.1);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+
+  /* Отступ справа остается 30px, поэтому кнопка стоит на месте */
+}
+
+[data-theme="light"] .fixed-header.hero-mode {
+  background: rgba(255, 255, 255, 0.9);
+  border-color: rgba(0, 0, 0, 0.1);
+}
+
+/* --- СМАТЫВАНИЕ КОНТЕНТА --- */
+.fixed-header.hero-mode .header-content-slide {
+  opacity: 0;
+  /* Сдвигаем контент ВПРАВО (под кнопку) на 100px */
+  transform: translateX(100px);
+
+  pointer-events: none;
+  /* Исчезает быстрее, чем сматывается ширина */
+  transition: opacity 0.2s ease, transform 0.8s cubic-bezier(0.75, 0, 0.25, 1);
+}
+
+/* --- ВРАЩЕНИЕ БАРАБАНА (ОБРАТНО) --- */
+.fixed-header.hero-mode .theme-switch {
+  border-left-color: transparent;
+  transform: rotate(0deg); /* Исходное положение */
+}
+
+/* Hover в Hero */
+@media (hover: hover) {
+  .fixed-header.hero-mode:hover {
+    transform: scale(1.05);
+    background: var(--accent-color);
+  }
+}
+
+/* =========================================
+   АДАПТАЦИЯ
+   ========================================= */
+/* Мобильное меню */
+.mobile-menu-dropdown {
+  position: absolute;
+  top: 90px;
+  right: 0;
+  width: 250px;
   background: var(--nav-bg);
   backdrop-filter: blur(20px);
-  border-bottom: 1px solid var(--border-color);
+  border: 1px solid var(--border-color);
+  border-radius: 20px;
   padding: 0;
   max-height: 0;
   overflow: hidden;
-  transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  opacity: 0;
+  transition: all 0.4s ease;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -194,69 +312,72 @@
 .mobile-menu-dropdown.active {
   max-height: 400px;
   padding: 2rem 0;
-}
-.mobile-link {
-  color: var(--text-color);
-  font-size: 1.1rem;
-  text-decoration: none;
-  margin-bottom: 1.5rem;
-  font-family: var(--font-main);
-  font-weight: 500;
-  opacity: 0;
-  transform: translateY(-10px);
-  transition: all 0.3s ease;
-}
-.mobile-menu-dropdown.active .mobile-link {
   opacity: 1;
-  transform: translateY(0);
-}
-.mobile-menu-dropdown.active .mobile-link:nth-child(1) {
-  transition-delay: 0.1s;
-}
-.mobile-menu-dropdown.active .mobile-link:nth-child(2) {
-  transition-delay: 0.2s;
-}
-.mobile-menu-dropdown.active .mobile-link:nth-child(3) {
-  transition-delay: 0.3s;
-}
-.mobile-menu-dropdown.active .mobile-link:nth-child(4) {
-  transition-delay: 0.4s;
-}
-.mobile-link.highlight {
-  color: var(--primary-color);
-  font-family: var(--font-mono);
-  border: 1px solid var(--primary-color);
-  padding: 0.5rem 1.5rem;
-  border-radius: 8px;
 }
 
 .mobile-burger {
   display: none;
-  flex-direction: column;
-  justify-content: space-between;
-  width: 30px;
-  height: 20px;
-  cursor: pointer;
-  z-index: 1001;
 }
-.mobile-burger span {
-  width: 100%;
-  height: 2px;
-  background-color: var(--text-color);
-  border-radius: 2px;
-  transition: all 0.3s ease;
+
+@media (max-width: 1024px) {
+  .header-nav,
+  .header-btn {
+    display: none;
+  }
+  .mobile-burger {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 24px;
+    height: 18px;
+    cursor: pointer;
+    margin-right: 1rem;
+  }
+  .mobile-burger span {
+    width: 100%;
+    height: 2px;
+    background-color: var(--text-color);
+    transition: 0.3s;
+  }
+  /* Выравниваем контент влево на планшете */
+  .header-content-slide {
+    justify-content: flex-start;
+  }
+  .header-logo {
+    margin-right: auto;
+  }
 }
-.mobile-burger.active span:nth-child(1) {
-  transform: rotate(45deg) translate(5px, 5px);
-  background-color: var(--secondary-color);
-}
-.mobile-burger.active span:nth-child(2) {
-  opacity: 0;
-  transform: translateX(-10px);
-}
-.mobile-burger.active span:nth-child(3) {
-  transform: rotate(-45deg) translate(8px, -8px);
-  background-color: var(--secondary-color);
+
+@media (max-width: 480px) {
+  .fixed-header {
+    top: 15px;
+    right: 15px;
+    width: calc(100% - 30px); /* 15px слева + 15px справа */
+    height: 60px;
+    border-radius: 30px;
+    left: auto; /* Сбрасываем left, используем ширину */
+  }
+
+  /* Свернутый (Hero) */
+  .fixed-header.hero-mode {
+    width: 60px;
+    height: 60px;
+  }
+
+  .theme-switch {
+    width: 60px;
+    height: 60px;
+  }
+
+  /* Меньше паддингов внутри */
+  .header-content-slide {
+    padding-left: 1.5rem;
+    padding-right: 0.5rem;
+    width: calc(100% - 60px);
+  }
+  .mobile-burger {
+    margin-right: 0.5rem;
+  }
 }
 
 /* ==========================================================================
@@ -1759,13 +1880,6 @@
 
 /* --- 768px (Tablets) --- */
 @media (max-width: 768px) {
-  .header-nav,
-  .header-btn {
-    display: none;
-  }
-  .mobile-burger {
-    display: flex;
-  }
   .hero-section {
     min-height: auto;
     padding-top: 7rem;
@@ -1874,20 +1988,6 @@
   body {
     overflow-x: hidden;
     width: 100%;
-  }
-  .fixed-header,
-  .fixed-header.hero-mode {
-    height: 70px;
-  }
-  .fixed-header.hero-mode {
-    width: 60px;
-    height: 60px;
-    border-radius: 0 0 0 20px;
-  }
-  .fixed-header.hero-mode .theme-switch svg {
-    width: 24px;
-    height: 24px;
-    transform: translate(0, 0);
   }
 
   .hero-section {
