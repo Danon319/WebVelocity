@@ -1,0 +1,83 @@
+:root {
+  /* --- COLORS: DARK THEME (Default) --- */
+  --bg-color: #0f1115;
+  --text-color: #e0e6ed;
+  --primary-color: #a8d5e2; /* Бледно-голубой */
+  --secondary-color: #f3a683; /* Персиковый */
+
+  /* UI Elements */
+  --accent-color: #303642;
+  --nav-bg: rgba(15, 17, 21, 0.8);
+  --border-color: rgba(255, 255, 255, 0.05);
+
+  /* Hero Specific */
+  --hero-grid-color: rgba(255, 255, 255, 0.03);
+  --sphere-border: rgba(168, 213, 226, 0.3);
+  --sphere-glow: rgba(168, 213, 226, 0.1);
+  --sphere-core: var(--primary-color);
+
+  /* Projects Specific */
+  --proj-grad-start: rgba(15, 17, 21, 0.98);
+  --proj-grad-mid: rgba(15, 17, 21, 0.7);
+  --proj-grad-end: rgba(15, 17, 21, 0);
+  --proj-title-color: #ffffff;
+  --proj-img-filter: brightness(0.9);
+
+  /* Modal / Terminal Specific */
+  --modal-bg: rgba(15, 17, 21, 0.98);
+  --term-bg: rgba(30, 34, 42, 0.5);
+  --term-text: #e0e6ed;
+  --term-output-color: #94a3b8;
+  --close-btn-bg: transparent;
+  --close-btn-hover: rgba(255, 255, 255, 0.1);
+
+  /* Pricing Card (Popular) */
+  --card-pop-bg: linear-gradient(
+    145deg,
+    rgba(48, 54, 66, 0.6) 0%,
+    #0f1115 100%
+  );
+  --card-pop-shadow: 0 0 20px rgba(243, 166, 131, 0.1);
+  --card-pop-border: var(--secondary-color);
+
+  /* Settings */
+  --border-radius: 12px;
+  --font-main: "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --font-mono: "Courier New", Courier, monospace;
+  --transition: all 0.3s ease;
+  --shadow-soft: 0 10px 40px rgba(0, 0, 0, 0.3);
+}
+
+/* --- LIGHT THEME OVERRIDES --- */
+[data-theme="light"] {
+  --bg-color: #f0f2f5;
+  --text-color: #1a202c;
+  --primary-color: #3b82f6; /* Насыщенный синий */
+  --secondary-color: #ea580c; /* Насыщенный оранжевый */
+
+  --accent-color: #ffffff;
+  --nav-bg: rgba(255, 255, 255, 0.85);
+  --border-color: rgba(0, 0, 0, 0.08);
+
+  --hero-grid-color: rgba(0, 0, 0, 0.08);
+  --sphere-border: rgba(26, 32, 44, 0.3);
+  --sphere-glow: rgba(59, 130, 246, 0.1);
+  --sphere-core: #2563eb;
+
+  --proj-grad-start: rgba(255, 255, 255, 0.98);
+  --proj-grad-mid: rgba(255, 255, 255, 0.85);
+  --proj-grad-end: rgba(255, 255, 255, 0);
+  --proj-title-color: #1a202c;
+  --proj-img-filter: brightness(1.05) contrast(1.05);
+
+  --modal-bg: rgba(255, 255, 255, 0.98);
+  --term-bg: #f1f5f9;
+  --term-text: #0f172a;
+  --term-output-color: #475569;
+  --close-btn-bg: rgba(0, 0, 0, 0.05);
+  --close-btn-hover: rgba(0, 0, 0, 0.1);
+
+  --card-pop-bg: linear-gradient(145deg, #ffffff 0%, #f0f7ff 100%);
+  --card-pop-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
+  --card-pop-border: var(--primary-color);
+}

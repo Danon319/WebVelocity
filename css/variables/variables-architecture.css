@@ -1,0 +1,22 @@
+:root {
+       /* Цветовая палитра */
+       --bg-color: #fcfbf9;          /* Светлый фон (бумага) */
+       --text-main: #1a1a1a;         /* Основной текст (почти черный) */
+       --text-secondary: #666666;    /* Вторичный текст */
+       --accent-color: #c9a66b;      /* Золотисто-песочный акцент */
+       --line-color: #e0e0e0;        /* Цвет линий разделителей */
+       --white: #ffffff;
+
+       /* Шрифты */
+       --font-heading: 'Playfair Display', serif;
+       --font-body: 'Inter', sans-serif;
+
+       /* Размеры и отступы */
+       --container-width: 1280px;
+       --header-height: 80px;
+       --spacing-section: 100px;
+       --spacing-element: 24px;
+
+       /* Анимации */
+       --transition-slow: 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}

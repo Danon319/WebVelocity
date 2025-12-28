@@ -1,0 +1,25 @@
+:root {
+       /* Цветовая палитра: Dark Cyberpunk */
+       --bg-color: #050505;          /* Почти черный фон */
+       --bg-secondary: #0f0f12;      /* Вторичный темный */
+       --text-main: #e0e0e0;         /* Светлый текст */
+       --text-secondary: #8892b0;    /* Приглушенный текст */
+       --accent-color: #00f3ff;      /* Неоновый голубой (Cyan) */
+       --accent-secondary: #ff0055;  /* Неоновый розовый */
+       --line-color: #1f2937;        /* Цвет разделителей */
+       --card-bg: #111111;           /* Фон карточек */
+
+       /* Шрифты */
+       --font-heading: 'Orbitron', sans-serif;
+       --font-body: 'Rajdhani', sans-serif;
+
+       /* Размеры и отступы */
+       --container-width: 1280px;
+       --header-height: 80px;
+       --spacing-section: 100px;
+       --spacing-element: 24px;
+
+       /* Анимации */
+       --transition-fast: 0.2s ease;
+       --transition-slow: 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}

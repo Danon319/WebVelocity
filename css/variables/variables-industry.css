@@ -1,0 +1,28 @@
+:root {
+    /* Палитра: Индустриальная строгость */
+    --color-primary: #1a2a3a;       /* Темно-синий (Navy) */
+    --color-secondary: #fcb900;     /* Промышленный желтый (Safety Yellow) */
+    --color-dark: #121212;          /* Почти черный */
+    --color-gray: #4a5568;          /* Серый текст */
+    --color-light-gray: #f4f6f8;    /* Светлый фон секций */
+    --color-white: #ffffff;
+
+    /* Шрифты */
+    --font-heading: 'Oswald', sans-serif;
+    --font-body: 'Roboto', sans-serif;
+
+    /* Размеры */
+    --container-width: 1200px;
+    --header-height: 90px;
+
+    /* Отступы */
+    --spacing-section: 100px;
+
+    /* UI элементы */
+    --border-radius: 2px; /* Строгие углы */
+    --shadow-card: 0 4px 6px rgba(0,0,0,0.05);
+    --shadow-hover: 0 10px 15px rgba(0,0,0,0.1);
+
+    /* Анимация */
+    --transition: 0.3s ease-in-out;
+}
