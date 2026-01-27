@@ -32,9 +32,11 @@
   overflow: hidden;
 
   /* АНИМАЦИЯ: Добавили height в список */
-  transition: width 0.8s cubic-bezier(0.75, 0, 0.25, 1),
+  transition:
+    width 0.8s cubic-bezier(0.75, 0, 0.25, 1),
     height 0.6s cubic-bezier(0.75, 0, 0.25, 1),
-    /* Плавное изменение высоты */ border-radius 0.6s ease, background 0.4s ease;
+    /* Плавное изменение высоты */ border-radius 0.6s ease,
+    background 0.4s ease;
 }
 
 [data-theme="light"] .fixed-header {
@@ -60,7 +62,8 @@
   /* АНИМАЦИЯ КОНТЕНТА */
   opacity: 1;
   transform: translateX(0);
-  transition: opacity 0.3s ease 0.3s,
+  transition:
+    opacity 0.3s ease 0.3s,
     transform 0.8s cubic-bezier(0.75, 0, 0.25, 1);
   white-space: nowrap;
 }
@@ -114,7 +117,10 @@
   font-weight: 700;
   overflow: hidden;
   z-index: 1;
-  transition: border-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+  transition:
+    border-color 0.3s ease,
+    color 0.3s ease,
+    box-shadow 0.3s ease;
   white-space: nowrap;
   text-decoration: none;
   letter-spacing: 1px;
@@ -160,7 +166,8 @@
   transform: rotate(-360deg);
 
   /* Анимация размеров тоже */
-  transition: transform 0.8s cubic-bezier(0.75, 0, 0.25, 1),
+  transition:
+    transform 0.8s cubic-bezier(0.75, 0, 0.25, 1),
     width 0.6s cubic-bezier(0.75, 0, 0.25, 1),
     height 0.6s cubic-bezier(0.75, 0, 0.25, 1);
 }
@@ -180,7 +187,9 @@
   left: 0;
   width: 100%;
   height: 100%;
-  transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.5s ease;
+  transition:
+    transform 0.5s cubic-bezier(0.4, 0, 0.2, 1),
+    opacity 0.5s ease;
 }
 .sun-icon {
   opacity: 1;
@@ -229,7 +238,9 @@
   transform: translateX(100px);
 
   pointer-events: none;
-  transition: opacity 0.2s ease, transform 0.8s cubic-bezier(0.75, 0, 0.25, 1);
+  transition:
+    opacity 0.2s ease,
+    transform 0.8s cubic-bezier(0.75, 0, 0.25, 1);
 }
 
 /* --- КНОПКА ТЕМЫ (Становится большой 80px) --- */
@@ -355,7 +366,8 @@
   justify-content: center;
   overflow: hidden;
   padding: 2rem;
-  background-image: linear-gradient(var(--hero-grid-color) 1px, transparent 1px),
+  background-image:
+    linear-gradient(var(--hero-grid-color) 1px, transparent 1px),
     linear-gradient(90deg, var(--hero-grid-color) 1px, transparent 1px);
   background-size: 50px 50px;
 }
@@ -457,7 +469,8 @@
   white-space: nowrap;
   margin: 0;
   width: 0;
-  animation: typing 3.5s steps(30, end) forwards,
+  animation:
+    typing 3.5s steps(30, end) forwards,
     blink-caret 0.75s step-end infinite;
   vertical-align: bottom;
 }
@@ -564,7 +577,9 @@
   border-radius: 50%;
   border: 1px solid var(--sphere-border);
   box-shadow: 0 0 20px var(--sphere-glow);
-  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  transition:
+    border-color 0.3s ease,
+    box-shadow 0.3s ease;
 }
 .r1 {
   width: 100%;
@@ -621,12 +636,7 @@
 /* ==========================================================================
    5. FEATURES SECTION
    ========================================================================== */
-.features-section {
-  width: 100%;
-  max-width: 1200px;
-  padding: 4rem 2rem;
-  margin: 0 auto;
-}
+
 .features-header {
   text-align: center;
   margin-bottom: 4rem;
@@ -730,12 +740,6 @@
 /* ==========================================================================
    6. PROJECTS SECTION
    ========================================================================== */
-.projects-section {
-  width: 100%;
-  max-width: 1200px;
-  padding: 4rem 2rem;
-  margin: 0 auto;
-}
 .projects-header {
   text-align: center;
   margin-bottom: 3rem;
@@ -776,7 +780,8 @@
   height: 100%;
   object-fit: cover;
   filter: var(--proj-img-filter);
-  transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+  transition:
+    transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94),
     filter 0.3s ease;
 }
 
@@ -796,7 +801,9 @@
   flex-direction: column;
   justify-content: flex-end;
   padding: 2rem;
-  transition: background 0.3s ease, backdrop-filter 0.3s ease;
+  transition:
+    background 0.3s ease,
+    backdrop-filter 0.3s ease;
 }
 
 /* Hover Effects */
@@ -879,12 +886,7 @@
 /* ==========================================================================
    7. PRICING SECTION
    ========================================================================== */
-.pricing-section {
-  width: 100%;
-  max-width: 1200px;
-  padding: 4rem 2rem;
-  margin: 0 auto;
-}
+
 .pricing-header {
   text-align: center;
   margin-bottom: 4rem;
@@ -1041,12 +1043,7 @@
 /* ==========================================================================
    8. CONTACT SECTION
    ========================================================================== */
-.contact-section {
-  width: 100%;
-  max-width: 1200px;
-  padding: 4rem 2rem;
-  margin: 0 auto;
-}
+
 .contact-grid {
   display: grid;
   grid-template-columns: 1fr 1.2fr;
@@ -1500,7 +1497,9 @@
   line-height: 1.6;
   color: var(--term-text);
   overflow: hidden;
-  transition: background-color 0.3s ease, color 0.3s ease;
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease;
 }
 .term-line {
   display: flex;
@@ -1541,7 +1540,9 @@
   font-size: 0.95rem;
   opacity: 0;
   transform: translateY(5px);
-  transition: opacity 0.5s ease, transform 0.5s ease;
+  transition:
+    opacity 0.5s ease,
+    transform 0.5s ease;
 }
 .term-output.visible {
   opacity: 1;
@@ -1800,6 +1801,9 @@
     min-height: 600px;
     border-radius: 30px;
   }
+
+  .modal-visual a {
+  }
   .modal-title {
     font-size: 4rem;
     margin-bottom: 2.5rem;
@@ -1812,6 +1816,35 @@
 
 /* --- 1024px (Laptops) --- */
 @media (max-width: 1024px) {
+  /* HERO FIX (770px - 1024px) */
+  .hero-container {
+    /* Переключаем в 1 колонку: Текст сверху, Сфера снизу */
+    grid-template-columns: 1fr;
+    text-align: center;
+    gap: 4rem;
+
+    /* Дополнительный отступ сверху, чтобы текст не наезжал на хедер */
+    padding-top: 6rem;
+  }
+
+  /* Центруем кнопки и статистику */
+  .hero-actions,
+  .hero-stats {
+    justify-content: center;
+  }
+
+  .hero-subtitle {
+    margin: 0 auto 2.5rem; /* Центруем подзаголовок */
+  }
+
+  .hero-visual {
+    display: none;
+  }
+
+  .tech-sphere {
+    /* Уменьшаем масштаб до 80%, чтобы влезла в экран */
+    transform: scale(0.8);
+  }
   .header-nav,
   .header-btn {
     display: none;
@@ -1866,23 +1899,151 @@
   .visual-card {
     height: 400px;
   }
+
+  /* --- FIX: Кнопка проекта всегда видна на тач-скринах --- */
+  .fake-btn {
+    opacity: 1; /* Полная видимость */
+    transform: translateY(0); /* Стоит на месте */
+
+    /* Делаем её чуть более явной (полупрозрачный фон) */
+    background: var(--primary-color);
+    color: var(--bg-color);
+    border: 1px solid transparent;
+  }
+
+  /* Текст описания тоже сразу на месте (не выезжает снизу) */
+  .project-info {
+    transform: translateY(0);
+  }
+
+  /* Делаем градиент чуть темнее снизу постоянно, чтобы текст читался */
+  .project-overlay {
+    background: linear-gradient(
+      to top,
+      var(--proj-grad-start) 20%,
+      var(--proj-grad-mid) 70%,
+      var(--proj-grad-end) 100%
+    );
+  }
+}
+
+/* ==========================================================================
+   PORTRAIT MODE FIX (Tablets)
+   Срабатывает, когда устройство вертикально и ширина <= 1024px
+   ========================================================================== */
+@media (max-width: 1024px) and (orientation: portrait) {
+  /* 1. HERO SECTION */
+  .hero-section {
+    min-height: 60vh; /* Уменьшаем минимальную высоту, чтобы не было пустот */
+    padding-top: 10rem; /* Больше отступ сверху */
+    padding-bottom: 6rem;
+  }
+
+  .hero-container {
+    grid-template-columns: 1fr; /* Строго одна колонка */
+    gap: 4rem;
+    text-align: center;
+  }
+
+  .hero-title {
+    font-size: 3.5rem; /* Чуть меньше гигантского */
+  }
+
+  .hero-subtitle {
+    font-size: 1.2rem;
+    margin: 0 auto 3rem;
+    max-width: 80%; /* Ограничиваем ширину текста */
+  }
+
+  .hero-visual {
+    display: none; /* Скрываем сферу, она только мешает в портрете */
+  }
+
+  .hero-actions,
+  .hero-stats {
+    justify-content: center;
+  }
+
+  /* 2. СЕТКИ (GRID) -> В одну колонку */
+  /* На узком высоком экране 2 колонки выглядят сжато. Делаем одну широкую. */
+  .features-grid,
+  .projects-grid,
+  .pricing-grid,
+  .contact-grid,
+  .modal-grid {
+    grid-template-columns: 1fr; /* Принудительно 1 колонка */
+    gap: 3rem;
+  }
+
+  /* Ограничиваем ширину контента, чтобы не растягивался на весь экран */
+  .features-grid,
+  .projects-grid,
+  .pricing-grid,
+  .contact-grid {
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  /* 3. КАРТОЧКИ */
+  .project-card {
+    height: 400px; /* Фикс высоты */
+  }
+
+  .pricing-card.popular {
+    transform: scale(1.02); /* Чуть меньше зум */
+  }
+
+  /* 4. МОДАЛЬНОЕ ОКНО */
+  .about-modal {
+    align-items: flex-start; /* Прижимаем к верху */
+    overflow-y: auto; /* Разрешаем скролл */
+  }
+
+  .modal-content {
+    padding: 6rem 2rem;
+    width: 90%;
+  }
+
+  .visual-card {
+    height: 400px;
+    order: -1; /* Фото сверху */
+  }
 }
 
 /* --- 768px (Tablets) --- */
 @media (max-width: 768px) {
+  /* HERO FIX (460px - 768px) */
   .hero-section {
-    min-height: auto;
-    padding-top: 7rem;
-    padding-bottom: 4rem;
+    min-height: auto; /* Разрешаем растягиваться по высоте контента */
+    height: auto; /* Убираем жесткую высоту */
+
+    /* Больше отступ сверху (под хедер) и снизу (чтобы не прилипало) */
+    padding-top: 8rem;
+    padding-bottom: 6rem;
+
+    /* Убедимся, что flex не пытается центрировать по вертикали, если места мало */
+    align-items: flex-start;
   }
+
   .hero-container {
+    /* Одна колонка */
     grid-template-columns: 1fr;
     text-align: center;
     gap: 3rem;
   }
+
+  .hero-title {
+    font-size: 2.5rem; /* Уменьшаем шрифт, чтобы влезал в ширину 460px */
+    line-height: 1.2;
+    word-wrap: break-word; /* Перенос длинных слов */
+  }
+
+  /* Скрываем сферу, так как на такой высоте она будет мешать тексту */
   .hero-visual {
     display: none;
   }
+
+  /* Центрируем кнопки и статистику */
   .hero-actions,
   .hero-stats {
     justify-content: center;
@@ -1895,7 +2056,6 @@
   .projects-grid,
   .features-grid,
   .contact-grid,
-  .footer-grid,
   .modal-grid {
     grid-template-columns: 1fr;
   }
@@ -1940,6 +2100,18 @@
 
   .footer-grid {
     text-align: center;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+  }
+
+  .footer-brand {
+    grid-column: 1;
+    grid-row: 2;
+  }
+
+  .footer-col-form {
+    grid-column: 2;
+    grid-row: 2;
   }
   .footer-col h3::after {
     left: 50%;

@@ -13,6 +13,7 @@
 
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: 130px;
 }
 body {
   background-color: var(--bg-color);
@@ -39,14 +40,29 @@ img {
   height: auto;
 }
 
-h2,
-h3,
-section {
-  scroll-margin-top: 60px;
-}
-
 button,
 a,
 input {
   -webkit-tap-highlight-color: transparent;
+}
+
+main > section {
+  /* Сверху: от 96px (моб) до 160px (ПК). */
+  padding-top: clamp(6rem, 10vh, 10rem);
+
+  /* Снизу: от 64px до 128px */
+  padding-bottom: clamp(4rem, 8vh, 8rem);
+
+  /* По бокам */
+  padding-left: 2rem;
+  padding-right: 2rem;
+
+  /* Центровка */
+  width: 100%;
+  max-width: 1600px;
+  margin: 0 auto;
+}
+
+header.hero-section {
+  padding-top: 0;
 }
