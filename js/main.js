@@ -46,106 +46,223 @@ document.addEventListener('DOMContentLoaded', () => {
     headerObserver.observe(heroSection);
   }
 
-  /* 3. MOBILE MENU */
-  const burgerBtn = document.getElementById('burger-btn');
-  const mobileMenu = document.getElementById('mobile-menu');
-  const mobileLinks = document.querySelectorAll('.mobile-link');
 
-  if (burgerBtn && mobileMenu) {
-    const toggleMenu = () => {
-      burgerBtn.classList.toggle('active');
-      mobileMenu.classList.toggle('active');
+
+  const officesData = {
+      'Москва': [
+        { id: 'msk_001', name: 'Офис на Тверской', address: 'ул. Тверская, д. 15, офис 301', coords: '55.764832,37.605383' },
+        { id: 'msk_002', name: 'Офис в Сити', address: 'Пресненская наб., д. 12, башня Федерация', coords: '55.749144,37.537553' },
+        { id: 'msk_003', name: 'Офис на Арбате', address: 'ул. Арбат, д. 24, офис 205', coords: '55.751244,37.589447' }
+      ],
+      'Санкт-Петербург': [
+        { id: 'spb_001', name: 'Офис на Невском', address: 'Невский проспект, д. 85, офис 402', coords: '59.930599,30.360396' },
+        { id: 'spb_002', name: 'Офис на Васильевском', address: 'Васильевский остров, 7-я линия, д. 34', coords: '59.941546,30.282530' }
+      ],
+      'Новосибирск': [
+        { id: 'nsk_001', name: 'Офис в центре', address: 'Красный проспект, д. 28, офис 501', coords: '55.030204,82.920430' }
+      ],
+      'Екатеринбург': [
+        { id: 'ekb_001', name: 'Офис на Ленина', address: 'пр. Ленина, д. 52, офис 301', coords: '56.838011,60.597465' },
+        { id: 'ekb_002', name: 'Офис в Академическом', address: 'ул. Вайнера, д. 9А, офис 204', coords: '56.837554,60.602836' }
+      ],
+      'Казань': [
+        { id: 'kzn_001', name: 'Офис в центре', address: 'ул. Баумана, д. 58, офис 302', coords: '55.789421,49.122764' }
+      ]
     };
 
-    const closeMenu = () => {
-      burgerBtn.classList.remove('active');
-      mobileMenu.classList.remove('active');
-    };
+    let currentMode = 'online';
+    let selectedCity = null;
+    let selectedOffice = null;
 
-    burgerBtn.addEventListener('click', toggleMenu);
+    const toggleBtns = document.querySelectorAll('.toggle-btn');
+    const onlineFields = document.getElementById('onlineFields');
+    const offlineFields = document.getElementById('offlineFields');
+    const officeSelectBtn = document.getElementById('officeSelectBtn');
+    const selectedOfficeText = document.getElementById('selectedOfficeText');
+    const modal = document.getElementById('officeModal');
+    const closeModalBtn = document.getElementById('closeModal');
+    const citiesGrid = document.getElementById('citiesGrid');
+    const officesList = document.getElementById('officesList');
+    const citySearch = document.getElementById('citySearch');
+    const contactForm = document.getElementById('contactForm');
 
-    mobileLinks.forEach(link => {
-      link.addEventListener('click', closeMenu);
+    toggleBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        toggleBtns.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        currentMode = btn.dataset.mode;
+        
+        if (currentMode === 'online') {
+          onlineFields.style.display = 'block';
+          offlineFields.style.display = 'none';
+        } else {
+          onlineFields.style.display = 'none';
+          offlineFields.style.display = 'block';
+        }
+      });
     });
-  }
 
-  /* 4. MODAL & TERMINAL LOGIC */
-  const aboutTrigger = document.getElementById('about-trigger');
-  const aboutOverlay = document.getElementById('about-overlay');
-  const closeAbout = document.getElementById('close-about');
-  
-  const cmdInput = document.getElementById('cmd-input');
-  const sysResponse = document.getElementById('sys-response');
-  const statusLine = document.getElementById('status-line');
-  const statusRes = document.getElementById('status-res');
-
-  let terminalTimers = [];
-
-  const clearTerminal = () => {
-    terminalTimers.forEach(t => clearTimeout(t));
-    terminalTimers = [];
-    
-    if (cmdInput) {
-      cmdInput.style.width = '0';
-      cmdInput.style.transition = 'none';
-      cmdInput.classList.remove('cursor-blink');
-    }
-    if (sysResponse) sysResponse.classList.remove('visible');
-    if (statusLine) statusLine.classList.remove('visible');
-    if (statusRes) statusRes.classList.remove('visible');
-  };
-
-  const typeText = (el, duration) => {
-    el.style.transition = `width ${duration}ms steps(30, end)`;
-    el.style.width = '100%';
-    el.classList.add('cursor-blink');
-  };
-
-  if (aboutTrigger && aboutOverlay) {
-    const openModal = () => {
-      aboutOverlay.classList.add('active');
+    officeSelectBtn.addEventListener('click', () => {
+      modal.classList.add('active');
       document.body.style.overflow = 'hidden';
-      
-      clearTerminal();
-      void aboutOverlay.offsetWidth; // Trigger Reflow
+    });
 
-      // Sequence
-      terminalTimers.push(setTimeout(() => {
-        if (cmdInput) typeText(cmdInput, 2000);
-      }, 500));
+    closeModalBtn.addEventListener('click', () => {
+      modal.classList.remove('active');
+      document.body.style.overflow = 'auto';
+    });
 
-      terminalTimers.push(setTimeout(() => {
-        if (cmdInput) cmdInput.classList.remove('cursor-blink');
-        if (sysResponse) sysResponse.classList.add('visible');
-      }, 3500));
-
-      terminalTimers.push(setTimeout(() => {
-        if (statusLine) statusLine.classList.add('visible');
-      }, 4500));
-
-      terminalTimers.push(setTimeout(() => {
-        if (statusRes) statusRes.classList.add('visible');
-      }, 6000));
-    };
-
-    const closeModal = () => {
-      aboutOverlay.classList.remove('active');
-      document.body.style.overflow = '';
-      clearTerminal();
-    };
-
-    aboutTrigger.addEventListener('click', openModal);
-    
-    if (closeAbout) closeAbout.addEventListener('click', closeModal);
-    
-    aboutOverlay.addEventListener('click', (e) => {
-      if (e.target === aboutOverlay) closeModal();
+    modal.addEventListener('click', (e) => {
+      if (e.target === modal) {
+        modal.classList.remove('active');
+        document.body.style.overflow = 'auto';
+      }
     });
 
     document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape' && aboutOverlay.classList.contains('active')) {
-        closeModal();
+      if (e.key === 'Escape' && modal.classList.contains('active')) {
+        modal.classList.remove('active');
+        document.body.style.overflow = 'auto';
       }
     });
-  }
+
+    function renderCities(filter = '') {
+      const cities = Object.keys(officesData);
+      citiesGrid.innerHTML = '';
+
+      cities.forEach(city => {
+        const btn = document.createElement('button');
+        btn.className = 'city-btn';
+        btn.textContent = city;
+        btn.type = 'button';
+        
+        if (filter && !city.toLowerCase().includes(filter.toLowerCase())) {
+          btn.classList.add('hidden');
+        }
+
+        if (city === selectedCity) {
+          btn.classList.add('active');
+        }
+
+        btn.addEventListener('click', () => {
+          selectedCity = city;
+          renderCities(filter);
+          renderOffices(city);
+        });
+
+        citiesGrid.appendChild(btn);
+      });
+    }
+
+    function renderOffices(city) {
+      const offices = officesData[city];
+      officesList.innerHTML = '';
+
+      const title = document.createElement('h3');
+      title.className = 'offices-title';
+      title.textContent = `Офисы в городе ${city}`;
+      officesList.appendChild(title);
+
+      offices.forEach(office => {
+        const card = document.createElement('div');
+        card.className = 'office-card';
+        
+        if (selectedOffice && selectedOffice.id === office.id) {
+          card.classList.add('selected');
+        }
+
+        const nameEl = document.createElement('div');
+        nameEl.className = 'office-name';
+        nameEl.textContent = office.name;
+        
+        if (selectedOffice && selectedOffice.id === office.id) {
+          const badge = document.createElement('span');
+          badge.className = 'selected-office-badge';
+          badge.textContent = 'Выбрано';
+          nameEl.appendChild(badge);
+        }
+
+        const addressEl = document.createElement('div');
+        addressEl.className = 'office-address';
+        addressEl.textContent = office.address;
+
+        const actions = document.createElement('div');
+        actions.className = 'office-actions';
+
+        const mapBtn = document.createElement('button');
+        mapBtn.className = 'btn btn-map';
+        mapBtn.textContent = '📍 Открыть на карте';
+        mapBtn.type = 'button';
+        mapBtn.addEventListener('click', (e) => {
+          e.stopPropagation();
+          window.open(`https://www.google.com/maps/search/?api=1&query=${office.coords}`, '_blank');
+        });
+
+        const selectBtn = document.createElement('button');
+        selectBtn.className = 'btn btn-select';
+        selectBtn.textContent = 'Выбрать офис';
+        selectBtn.type = 'button';
+        selectBtn.addEventListener('click', (e) => {
+          e.stopPropagation();
+          selectOffice(office);
+        });
+
+        actions.appendChild(mapBtn);
+        actions.appendChild(selectBtn);
+
+        card.appendChild(nameEl);
+        card.appendChild(addressEl);
+        card.appendChild(actions);
+
+        card.addEventListener('click', () => {
+          selectOffice(office);
+        });
+
+        officesList.appendChild(card);
+      });
+    }
+
+    function selectOffice(office) {
+      selectedOffice = office;
+      selectedOfficeText.textContent = `${office.name} — ${office.address}`;
+      officeSelectBtn.classList.add('selected');
+      modal.classList.remove('active');
+      document.body.style.overflow = 'auto';
+      if (selectedCity) {
+        renderOffices(selectedCity);
+      }
+    }
+
+    citySearch.addEventListener('input', (e) => {
+      renderCities(e.target.value);
+    });
+
+    contactForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      
+      if (currentMode === 'online') {
+        const formData = {
+          name: document.getElementById('name').value,
+          email: document.getElementById('email').value,
+          service: document.getElementById('service').value,
+          message: document.getElementById('message').value
+        };
+        console.log('Онлайн заявка:', formData);
+        alert('Онлайн заявка отправлена!\nПроверьте консоль для деталей.');
+      } else {
+        if (!selectedOffice) {
+          alert('Пожалуйста, выберите офис');
+          return;
+        }
+        const formData = {
+          name: document.getElementById('offlineName').value,
+          phone: document.getElementById('phone').value,
+          officeId: selectedOffice.id
+        };
+        console.log('Офлайн запись:', formData);
+        alert(`Запись на приём оформлена!\nОфис: ${selectedOffice.name}\nID офиса: ${selectedOffice.id}\nПроверьте консоль для деталей.`);
+      }
+    });
+
+    renderCities();
 });
