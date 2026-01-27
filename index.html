@@ -1,58 +1,85 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ru">
+  <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>WebVelocity | Digital Agency</title>
     <link rel="stylesheet" href="./css/styles.css" />
-    <link rel="stylesheet" href="./css/variables/variables.css"/>
-    <link rel="stylesheet" href="./css/globals.css"/>
+    <link rel="stylesheet" href="./css/variables/variables.css" />
+    <link rel="stylesheet" href="./css/globals.css" />
   </head>
   <body class="theme-main">
-        <!-- ГЛАВНЫЙ HEADER (Expanding Morph) -->
+    <!-- ГЛАВНЫЙ HEADER (Expanding Morph) -->
     <nav id="main-header" class="fixed-header hero-mode">
-        
-        <!-- Контейнер для скрываемого контента (Лого, Меню, Кнопка связи) -->
-        <!-- Он будет выезжать влево от кнопки -->
-        <div class="header-content-slide">
-            
-            <a href="#" class="header-logo">
-                &lt;WebVelocity /&gt;
-            </a>
+      <!-- Контейнер для скрываемого контента (Лого, Меню, Кнопка связи) -->
+      <!-- Он будет выезжать влево от кнопки -->
+      <div class="header-content-slide">
+        <a href="#" class="header-logo"> &lt;WebVelocity /&gt; </a>
 
-            <ul class="header-nav">
-                <li><a href="#projects">Проекты</a></li>
-                <li><a href="#services">Услуги</a></li>
-                <li><a href="#pricing">Цены</a></li>
-            </ul>
+        <ul class="header-nav">
+          <li><a href="#projects">Проекты</a></li>
+          <li><a href="#services">О нас</a></li>
+          <li><a href="#pricing">Тарифы</a></li>
+        </ul>
 
-            <a href="#contact" class="header-btn">
-                Связаться
-            </a>
+        <a href="#contact" class="header-btn"> Связаться </a>
 
-            <!-- Бургер (Мобильные) -->
-            <div class="mobile-burger" id="burger-btn">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
+        <!-- Бургер (Мобильные) -->
+        <div class="mobile-burger" id="burger-btn">
+          <span></span>
+          <span></span>
+          <span></span>
         </div>
+      </div>
 
-        <!-- Кнопка Смены Темы (ЯКОРЬ) -->
-        <!-- Она всегда справа и крутится -->
-        <button id="theme-toggle" class="theme-switch" aria-label="Toggle Theme">
-            <div class="icon-wrapper">
-                <svg class="sun-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
-                <svg class="moon-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
-            </div>
-        </button>
-
-        <!-- Мобильное меню -->
-        <div class="mobile-menu-dropdown" id="mobile-menu">
-            <a href="#projects" class="mobile-link">Проекты</a>
-            <a href="#services" class="mobile-link">Услуги</a>
-            <a href="#pricing" class="mobile-link">Цены</a>
-            <a href="#contact" class="mobile-link highlight">Связаться с нами</a>
+      <!-- Кнопка Смены Темы (ЯКОРЬ) -->
+      <!-- Она всегда справа и крутится -->
+      <button id="theme-toggle" class="theme-switch" aria-label="Toggle Theme">
+        <div class="icon-wrapper">
+          <svg
+            class="sun-icon"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <circle cx="12" cy="12" r="5"></circle>
+            <line x1="12" y1="1" x2="12" y2="3"></line>
+            <line x1="12" y1="21" x2="12" y2="23"></line>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+            <line x1="1" y1="12" x2="3" y2="12"></line>
+            <line x1="21" y1="12" x2="23" y2="12"></line>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+          </svg>
+          <svg
+            class="moon-icon"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+          </svg>
         </div>
+      </button>
+
+      <!-- Мобильное меню -->
+      <div class="mobile-menu-dropdown" id="mobile-menu">
+        <a href="#projects" class="mobile-link">Проекты</a>
+        <a href="#services" class="mobile-link">Услуги</a>
+        <a href="#pricing" class="mobile-link">Цены</a>
+        <a href="#contact" class="mobile-link highlight">Связаться с нами</a>
+      </div>
     </nav>
 
     <!-- Hero Section -->
@@ -237,8 +264,8 @@
                 <div class="project-tag">// Architecture & Design</div>
                 <h3 class="project-title">ARCHIT</h3>
                 <p class="project-desc">
-                  Разработка корпоративного портала для архитектурного бюро с
-                  3D-презентацией объектов.
+                  Разработка корпоративного портала для архитектурного бюро со
+                  строгим стилем.
                 </p>
                 <div class="fake-btn">
                   Смотреть кейс <span class="arrow">→</span>
@@ -279,8 +306,8 @@
                 <div class="project-tag">// Heavy Industry</div>
                 <h3 class="project-title">TITAN</h3>
                 <p class="project-desc">
-                  ERP-система для мониторинга производственных процессов
-                  металлургического завода.
+                  Лендинг для промышленной компании с акцентом на надежность и
+                  инновации.
                 </p>
                 <div class="fake-btn">
                   Смотреть кейс <span class="arrow">→</span>
@@ -370,7 +397,6 @@
               Готовы запустить свой проект? Заполните форму, и наша команда
               разработчиков свяжется с вами в течение 24 часов.
             </p>
-
             <address class="contact-details">
               <div class="detail-item">
                 <div class="icon-box">@</div>
@@ -386,7 +412,13 @@
               </div>
               <div class="detail-item">
                 <div class="icon-box">📍</div>
-                <span><a href="https://yandex.ru/maps/?text=Москва,+Красная+площадь,+д.+1" target="_blank">Москва, Красная площадь, д. 1</a></span>
+                <span
+                  ><a
+                    href="https://yandex.ru/maps/?text=Москва,+Красная+площадь,+д.+1"
+                    target="_blank"
+                    >Москва, Красная площадь, д. 1</a
+                  ></span
+                >
               </div>
             </address>
 
@@ -398,75 +430,193 @@
               }
             </div>
           </div>
+          <form class="contact-form" id="contactForm">
+            <div class="toggle-wrapper">
+              <button
+                type="button"
+                class="toggle-btn active"
+                data-mode="online"
+              >
+                Онлайн
+              </button>
+              <button type="button" class="toggle-btn" data-mode="offline">
+                Офлайн
+              </button>
+            </div>
 
-          <form class="contact-form">
-            <div class="form-group">
-              <label class="form-label" for="name">&lt;name&gt;</label>
+            <div id="onlineFields">
+              <div class="form-group">
+                <label class="form-label" for="name">&lt;name&gt;</label>
+                <input
+                  type="text"
+                  id="name"
+                  class="form-input"
+                  placeholder="Ваше имя"
+                />
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="email">&lt;email&gt;</label>
+                <input
+                  type="email"
+                  id="email"
+                  class="form-input"
+                  placeholder="example@mail.com"
+                />
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="service">&lt;service&gt;</label>
+                <select id="service" class="form-select">
+                  <option value="" disabled selected>
+                    Выберите тип услуги
+                  </option>
+                  <option value="landing">Лендинг</option>
+                  <option value="corporate">Корпоративный</option>
+                  <option value="ecommerce">Интернет-магазин</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="message">&lt;message&gt;</label>
+                <textarea
+                  id="message"
+                  class="form-textarea"
+                  placeholder="Расскажите о вашем проекте..."
+                ></textarea>
+              </div>
+
+              <button type="submit" class="submit-btn">
+                Отправить заявку
+                <svg
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <line x1="22" y1="2" x2="11" y2="13"></line>
+                  <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+                </svg>
+              </button>
+            </div>
+
+            <div id="offlineFields" style="display: none">
+              <div class="form-group">
+                <label class="form-label" for="offlineName">&lt;name&gt;</label>
+                <input
+                  type="text"
+                  id="offlineName"
+                  class="form-input"
+                  placeholder="Ваше имя"
+                />
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="phone">&lt;phone&gt;</label>
+                <input
+                  type="tel"
+                  id="phone"
+                  class="form-input"
+                  placeholder="+7 (900) 123-45-67"
+                />
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="officeSelect"
+                  >&lt;office&gt;</label
+                >
+                <button
+                  type="button"
+                  class="office-selector-btn"
+                  id="officeSelectBtn"
+                >
+                  <span id="selectedOfficeText">Выберите офис</span>
+                  <span>▼</span>
+                </button>
+              </div>
+
+              <button type="submit" class="submit-btn">
+                Записаться на приём
+                <svg
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path
+                    d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"
+                  ></path>
+                  <circle cx="12" cy="10" r="3"></circle>
+                </svg>
+              </button>
+            </div>
+          </form>
+          <div class="office-modal" id="officeModal">
+            <div class="modal-content">
+              <button class="modal-close" id="closeModal">&times;</button>
+              <h2 class="modal-title">Выберите офис</h2>
+
               <input
                 type="text"
-                id="name"
-                class="form-input"
-                placeholder="Ваше имя"
+                class="search-input"
+                id="citySearch"
+                placeholder="Поиск города..."
               />
-            </div>
 
-            <div class="form-group">
-              <label class="form-label" for="email">&lt;email&gt;</label>
-              <input
-                type="email"
-                id="email"
-                class="form-input"
-                placeholder="example@mail.com"
-              />
-            </div>
+              <div class="cities-grid" id="citiesGrid"></div>
 
-            <div class="form-group">
-              <label class="form-label" for="service">&lt;service&gt;</label>
-              <select id="service" class="form-select">
-                <option value="" disabled selected>Выберите тип услуги</option>
-                <option value="landing">Лендинг</option>
-                <option value="corporate">Корпоративный</option>
-                <option value="ecommerce">Интернет-магазин</option>
-              </select>
+              <div class="offices-list" id="officesList"></div>
             </div>
-
-            <div class="form-group">
-              <label class="form-label" for="message">&lt;message&gt;</label>
-              <textarea
-                id="message"
-                class="form-textarea"
-                placeholder="Расскажите о вашем проекте..."
-              ></textarea>
-            </div>
-
-            <button type="submit" class="submit-btn">
-              Отправить заявку
-              <svg
-                width="20"
-                height="20"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              >
-                <line x1="22" y1="2" x2="11" y2="13"></line>
-                <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
-              </svg>
-            </button>
-          </form>
+          </div>
         </div>
+      </section>
+      <section class="information_company-section">
+        <a href="../examples/information-company.html" class="about-btn">
+          <div class="about-btn-icon">
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <circle cx="9" cy="7" r="3" />
+              <path d="M3 19c0-3.3 2.7-6 6-6h0c1.2 0 2.3.4 3.2 1" />
+              <circle cx="17" cy="10" r="2.5" />
+              <path d="M12.5 19c0-2.5 2-4.5 4.5-4.5s4.5 2 4.5 4.5" />
+            </svg>
+          </div>
+          <div class="about-btn-content">
+            <span class="about-btn-label">// ABOUT</span>
+            <span class="about-btn-title">&lt;О нас /&gt;</span>
+          </div>
+          <div class="about-btn-arrow">
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path d="M5 12h14M12 5l7 7-7 7" />
+            </svg>
+          </div>
+        </a>
       </section>
     </main>
 
     <!-- Footer -->
     <footer id="footer" class="site-footer">
-      <button id="about-trigger" class="footer-tab-btn">
-        <span class="tab-icon">?</span>
-        <span class="tab-text">Team.exe</span>
-      </button>
-
       <div class="footer-container">
         <div class="footer-grid">
           <div class="footer-brand">
@@ -504,7 +654,7 @@
 
           <div class="footer-col footer-col-form">
             <h3>// Новости</h3>
-            <p style="color: #8b9bb4; font-size: 0.9rem; margin-bottom: 1rem">
+            <p class="newsletter-text">
               Получайте свежие инсайты о веб-разработке раз в неделю.
             </p>
             <form class="newsletter-form">
@@ -529,91 +679,6 @@
         </div>
       </div>
     </footer>
-
-    <!-- Team Modal -->
-    <div id="about-overlay" class="about-modal">
-      <button id="close-about" class="modal-close-btn">
-        <svg
-          width="32"
-          height="32"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          stroke-width="2"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-        >
-          <line x1="18" y1="6" x2="6" y2="18"></line>
-          <line x1="6" y1="6" x2="18" y2="18"></line>
-        </svg>
-      </button>
-
-      <div class="modal-content">
-        <div class="modal-grid">
-          <div class="modal-text">
-            <div class="modal-label">// Who we are</div>
-            <h2 class="modal-title">
-              Мы — архитекторы <br /><span class="highlight">цифровой</span>
-              среды.
-            </h2>
-
-            <div class="terminal-box">
-              <div class="term-line">
-                <span class="prompt">></span>
-                <span class="typing-wrapper">
-                  <span class="typing-text" id="cmd-input"
-                    >run philosophy.init</span
-                  >
-                </span>
-              </div>
-
-              <div class="term-output" id="sys-response">
-                <p>
-                  Мы верим, что веб-сайт — это не просто картинка. Это сложный
-                  механизм, где каждая строчка кода имеет значение.
-                </p>
-                <p>
-                  Наша миссия — уничтожить посредственность в вебе. Мы не делаем
-                  "просто сайты", мы создаем инструменты доминирования на рынке.
-                </p>
-              </div>
-
-              <div class="term-line" id="status-line">
-                <span class="status-label">status:</span>
-                <span class="status-value" id="status-res"
-                  >OBSESSED WITH QUALITY</span
-                >
-              </div>
-            </div>
-
-            <div class="modal-stats">
-              <div class="m-stat">
-                <span>12</span>
-                <small>Человек в команде</small>
-              </div>
-              <div class="m-stat">
-                <span>4.9</span>
-                <small>Яндекс Rating</small>
-              </div>
-            </div>
-          </div>
-
-          <div class="modal-visual">
-              <a href="#" class="team-logo" style="display: flex; align-items: center;">
-                  <svg viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      <!-- Левый блок (Структура - Синий) -->
-                      <path d="M10 8V24C10 29 14 34 20 34H24" stroke="#a8d5e2" stroke-width="4" stroke-linecap="round"/>
-                      <!-- Правый блок (Скорость - Персиковый) -->
-                      <path d="M34 36V20C34 15 30 10 24 10H20" stroke="#f3a683" stroke-width="4" stroke-linecap="round"/>
-                      <!-- Центральные точки данных -->
-                      <circle cx="22" cy="22" r="3" fill="white"/>
-                  </svg>
-              </a>
-          </div>
-        </div>
-      </div>
-    </div>
-
     <script src="./js/main.js" defer></script>
   </body>
 </html>

@@ -1,7 +1,8 @@
 :root {
   /* --- COLORS: DARK THEME (Default) --- */
   --bg-color: #0f1115;
-  --text-color: #e0e6ed;
+  --text-color: #e9edf2;
+  --header-text-color: #eff2f6;
   --primary-color: #a8d5e2; /* Бледно-голубой */
   --secondary-color: #f3a683; /* Персиковый */
 
@@ -45,6 +46,17 @@
   --font-main: "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
   --font-mono: "Courier New", Courier, monospace;
   --transition: all 0.3s ease;
+  --btn-translateY: translateY(-2px);
+  --shadow-soft: 0 10px 40px rgba(0, 0, 0, 0.3);
+
+  --toggle-bg: rgba(30, 34, 42, 0.3);
+  --toggle-active-bg: var(--primary-color);
+
+  --border-radius: 12px;
+  --font-main: "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --font-mono: "Courier New", Courier, monospace;
+  --transition: all 0.3s ease;
+  --btn-translateY: translateY(-2px);
   --shadow-soft: 0 10px 40px rgba(0, 0, 0, 0.3);
 }
 
@@ -52,6 +64,7 @@
 [data-theme="light"] {
   --bg-color: #f0f2f5;
   --text-color: #1a202c;
+  --header-text-color: #1a202c;
   --primary-color: #3b82f6; /* Насыщенный синий */
   --secondary-color: #ea580c; /* Насыщенный оранжевый */
 
