@@ -1070,6 +1070,7 @@
     var(--header-text-color)
   );
   -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 .contact-info p {
@@ -2262,6 +2263,7 @@
   }
   .project-desc {
     -webkit-line-clamp: 3;
+    line-clamp: 3;
     display: -webkit-box;
     -webkit-box-orient: vertical;
     overflow: hidden;
