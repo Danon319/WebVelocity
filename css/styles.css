@@ -1523,22 +1523,46 @@
 /* ==========================================================================
    9. INFORMATION-COMPANY SECTION
    ========================================================================== */
-
-.about-btn {
+/* Центрированная секция */
+.information_company-section {
   display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 50px;
+}
+
+/* Кнопка с фиксированной шириной */
+.about-btn {
+  display: inline-flex;
   align-items: center;
   gap: 16px;
   padding: 16px 24px;
   background: rgba(15, 17, 21, 0.8);
-  border: 1px solid rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(168, 213, 226, 0.3);
   border-radius: 12px;
   text-decoration: none;
   cursor: pointer;
   transition: all 0.3s ease;
   position: relative;
   overflow: hidden;
+  max-width: 100%;
+  animation: shimmer-border 2s ease-in-out infinite;
 }
 
+/* Эффект мерцающего бордера */
+@keyframes shimmer-border {
+  0%,
+  100% {
+    border-color: rgba(168, 213, 226, 0.2);
+    box-shadow: 0 0 5px rgba(168, 213, 226, 0.1);
+  }
+  50% {
+    border-color: rgba(168, 213, 226, 0.6);
+    box-shadow: 0 0 15px rgba(168, 213, 226, 0.3);
+  }
+}
+
+/* Левая полоска при наведении */
 .about-btn::before {
   content: "";
   position: absolute;
@@ -1556,12 +1580,14 @@
   border-color: #a8d5e2;
   transform: translateY(-3px);
   box-shadow: 0 10px 30px rgba(168, 213, 226, 0.1);
+  animation: none; /* Останавливаем мерцание при наведении */
 }
 
 .about-btn:hover::before {
   opacity: 1;
 }
 
+/* Иконка */
 .about-btn-icon {
   width: 80px;
   height: 80px;
@@ -1571,6 +1597,7 @@
   align-items: center;
   justify-content: center;
   transition: all 0.3s ease;
+  flex-shrink: 0;
 }
 
 .about-btn-icon svg {
@@ -1589,6 +1616,7 @@
   color: #0f1115;
 }
 
+/* Контент */
 .about-btn-content {
   display: flex;
   flex-direction: column;
@@ -1607,17 +1635,20 @@
   font-size: 2rem;
   color: #e9edf2;
   transition: color 0.3s ease;
+  white-space: nowrap;
 }
 
 .about-btn:hover .about-btn-title {
   color: #a8d5e2;
 }
 
+/* Стрелка */
 .about-btn-arrow {
   margin-left: auto;
   opacity: 0;
   transform: translateX(-10px);
   transition: all 0.3s ease;
+  flex-shrink: 0;
 }
 
 .about-btn-arrow svg {
@@ -2192,10 +2223,37 @@
     flex-direction: column;
     text-align: center;
   }
+  .about-btn {
+    gap: 12px;
+    padding: 12px 18px;
+  }
+
+  .about-btn-icon {
+    width: 60px;
+    height: 60px;
+  }
+
+  .about-btn-icon svg {
+    width: 32px;
+    height: 32px;
+  }
+
+  .about-btn-label {
+    font-size: 0.85rem;
+  }
+
+  .about-btn-title {
+    font-size: 1.5rem;
+  }
+
+  .about-btn-arrow svg {
+    width: 40px;
+    height: 40px;
+  }
 }
 
-/* --- 480px (Mobile) --- */
-@media (max-width: 480px) {
+/* --- 425px (Mobile) --- */
+@media (max-width: 425px) {
   body {
     overflow-x: hidden;
     width: 100%;
@@ -2334,5 +2392,73 @@
   .footer-tab-btn:hover {
     top: -30px;
     padding-bottom: 0.5rem;
+  }
+
+  .information_company-section {
+    padding: 15px;
+  }
+
+  .about-btn {
+    gap: 10px;
+    padding: 10px 15px;
+  }
+
+  .about-btn-icon {
+    width: 50px;
+    height: 50px;
+  }
+
+  .about-btn-icon svg {
+    width: 26px;
+    height: 26px;
+  }
+
+  .about-btn-label {
+    font-size: 0.75rem;
+  }
+
+  .about-btn-title {
+    font-size: 1.2rem;
+  }
+
+  .about-btn-arrow svg {
+    width: 35px;
+    height: 35px;
+  }
+
+  .footer-grid {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+/* средние телефоны */
+@media (max-width: 375px) {
+  .hero-title {
+    font-size: 2rem;
+  }
+  .project-card {
+    height: 320px;
+  }
+
+  .about-btn-arrow {
+    display: none;
+  }
+
+  .about-btn-title {
+    font-size: 1rem;
+  }
+}
+
+/* очень маленькие телефоны */
+@media (max-width: 320px) {
+  .hero-title {
+    font-size: 1.8rem;
+  }
+  .project-card {
+    height: 280px;
+  }
+  .header-logo {
+    font-size: 1rem;
   }
 }

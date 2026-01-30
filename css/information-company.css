@@ -1522,7 +1522,6 @@ body {
   line-height: 1.5;
   display: -webkit-box;
   -webkit-line-clamp: 2;
-  line-clamp: 2;
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
@@ -1955,12 +1954,18 @@ body {
   .slide {
     padding: 40px;
   }
+  .slide-about {
+    padding-bottom: 100px;
+  }
   .slide-nav {
     left: 15px;
   }
   .logo-bg {
     width: 280px;
     height: 280px;
+  }
+  .scroll-indicator {
+    bottom: 25px;
   }
 
   .stat-card {
@@ -2643,6 +2648,590 @@ body {
   .achievement-tag svg {
     width: 10px;
     height: 10px;
+  }
+}
+
+/* 425px — большие мобильные */
+@media (max-width: 425px) {
+  .slide {
+    padding: 65px 12px 25px;
+  }
+  .page-close-btn {
+    top: 12px;
+    right: 12px;
+    width: 46px;
+    height: 46px;
+  }
+  .page-close-btn svg {
+    width: 24px;
+    height: 24px;
+  }
+  .section-title {
+    font-size: 18px;
+  }
+  .description-text {
+    font-size: 13px;
+    line-height: 1.6;
+  }
+  .description-box {
+    padding: 18px 12px 18px 16px;
+  }
+  .description-box::before {
+    font-size: 8px;
+    top: 8px;
+    left: 12px;
+  }
+
+  .terminal-body {
+    padding: 10px;
+    font-size: 11px;
+  }
+  .terminal-header {
+    padding: 6px 10px;
+  }
+  .terminal-dot {
+    width: 7px;
+    height: 7px;
+  }
+
+  .stat-card {
+    padding: 15px;
+  }
+  .stat-number {
+    font-size: 1.8rem;
+  }
+  .stat-label {
+    font-size: 0.95rem;
+  }
+  .stat-sublabel {
+    font-size: 0.8rem;
+  }
+  .stat-icon {
+    width: 40px;
+    height: 40px;
+  }
+  .stat-icon svg {
+    width: 20px;
+    height: 20px;
+  }
+  .stat-btn {
+    padding: 7px 12px;
+    font-size: 10px;
+  }
+
+  .tech-tag {
+    padding: 5px 10px;
+    font-size: 10px;
+  }
+
+  .modal-title {
+    font-size: 16px;
+  }
+  .team-name {
+    font-size: 14px;
+  }
+  .team-stat .stat-value {
+    font-size: 18px;
+  }
+  .review-text {
+    font-size: 12px;
+  }
+  .portfolio-title {
+    font-size: 15px;
+  }
+  .timeline-title {
+    font-size: 14px;
+  }
+  .timeline-desc {
+    font-size: 11px;
+  }
+}
+
+/* 375px — средние мобильные (iPhone) */
+@media (max-width: 375px) {
+  .slide {
+    padding: 60px 10px 20px;
+  }
+  .slide-nav {
+    left: 6px;
+  }
+  .slide-dot {
+    width: 5px;
+    height: 5px;
+  }
+  .page-close-btn {
+    top: 10px;
+    right: 10px;
+    width: 48px;
+    height: 48px;
+  }
+  .page-close-btn svg {
+    width: 24px;
+    height: 24px;
+  }
+
+  .section-title {
+    font-size: 16px;
+    margin-bottom: 12px;
+  }
+  .description-text {
+    font-size: 12px;
+    line-height: 1.5;
+    margin-bottom: 15px;
+  }
+  .description-box {
+    padding: 15px 10px 15px 14px;
+  }
+  .description-box::before {
+    display: none;
+  }
+
+  .terminal-body {
+    padding: 8px;
+    font-size: 10px;
+    line-height: 1.6;
+  }
+  .terminal-header {
+    padding: 5px 8px;
+  }
+  .terminal-dot {
+    width: 6px;
+    height: 6px;
+  }
+  .terminal-title {
+    font-size: 9px;
+  }
+  .terminal-output {
+    padding-left: 8px;
+    margin: 6px 0 6px 3px;
+  }
+
+  .stat-card {
+    padding: 12px;
+    border-radius: 12px;
+  }
+  .stat-number {
+    font-size: 1.6rem;
+    margin-bottom: 4px;
+  }
+  .stat-label {
+    font-size: 0.85rem;
+    margin-bottom: 4px;
+  }
+  .stat-sublabel {
+    font-size: 0.75rem;
+    margin-bottom: 10px;
+  }
+  .stat-icon {
+    width: 36px;
+    height: 36px;
+    margin-bottom: 10px;
+  }
+  .stat-icon svg {
+    width: 18px;
+    height: 18px;
+  }
+  .stat-btn {
+    padding: 6px 10px;
+    font-size: 9px;
+  }
+  .stat-number-bg {
+    font-size: 3rem;
+  }
+
+  .stats-grid {
+    gap: 10px;
+  }
+  .tech-tags {
+    gap: 5px;
+  }
+  .tech-tag {
+    padding: 4px 8px;
+    font-size: 9px;
+  }
+
+  .logo-bg {
+    width: 120px;
+    height: 120px;
+    opacity: 0.04;
+  }
+
+  .scroll-indicator {
+    padding: 10px 20px;
+  }
+  .scroll-indicator span {
+    font-size: 12px;
+  }
+
+  .modal-header {
+    padding: 12px;
+  }
+  .modal-body {
+    padding: 12px;
+  }
+  .modal-title {
+    font-size: 15px;
+  }
+  .modal-close {
+    width: 28px;
+    height: 28px;
+  }
+  .modal-close svg {
+    width: 14px;
+    height: 14px;
+  }
+
+  .team-card {
+    padding: 12px;
+    gap: 10px;
+  }
+  .avatar-placeholder {
+    width: 38px;
+    height: 38px;
+    font-size: 14px;
+    border-radius: 10px;
+  }
+  .status-indicator {
+    width: 10px;
+    height: 10px;
+  }
+  .team-name {
+    font-size: 13px;
+  }
+  .team-role {
+    font-size: 10px;
+  }
+  .stack-tag {
+    padding: 3px 6px;
+    font-size: 9px;
+  }
+  .team-stats {
+    gap: 15px;
+    padding-top: 10px;
+  }
+  .team-stat .stat-value {
+    font-size: 16px;
+  }
+  .team-stat .stat-name {
+    font-size: 8px;
+  }
+
+  .review-card {
+    padding: 14px;
+  }
+  .review-header {
+    gap: 10px;
+    margin-bottom: 10px;
+  }
+  .review-avatar {
+    width: 36px;
+    height: 36px;
+    font-size: 12px;
+  }
+  .review-name {
+    font-size: 13px;
+  }
+  .review-company {
+    font-size: 10px;
+  }
+  .review-text {
+    font-size: 11px;
+  }
+  .review-rating svg {
+    width: 12px;
+    height: 12px;
+  }
+  .review-card::before {
+    font-size: 40px;
+  }
+  .review-project {
+    font-size: 9px;
+    padding: 4px 8px;
+  }
+  .review-date {
+    font-size: 9px;
+  }
+
+  .portfolio-card {
+    height: 160px;
+  }
+  .portfolio-content {
+    padding: 12px;
+  }
+  .portfolio-category {
+    font-size: 9px;
+    margin-bottom: 4px;
+  }
+  .portfolio-title {
+    font-size: 14px;
+    margin-bottom: 4px;
+  }
+  .portfolio-desc {
+    font-size: 11px;
+  }
+  .portfolio-tags {
+    gap: 4px;
+    margin-top: 8px;
+  }
+  .portfolio-tag {
+    padding: 3px 6px;
+    font-size: 8px;
+  }
+
+  .timeline {
+    padding-left: 25px;
+  }
+  .timeline-marker {
+    left: -25px;
+  }
+  .timeline-year {
+    font-size: 10px;
+    margin-bottom: 4px;
+  }
+  .timeline-dot {
+    width: 12px;
+    height: 12px;
+    border-width: 2px;
+  }
+  .timeline-content {
+    padding: 12px;
+    margin-left: 8px;
+    border-radius: 10px;
+  }
+  .timeline-title {
+    font-size: 13px;
+    margin-bottom: 6px;
+  }
+  .timeline-desc {
+    font-size: 11px;
+    margin-bottom: 10px;
+  }
+  .timeline-achievements {
+    gap: 4px;
+  }
+  .achievement-tag {
+    font-size: 8px;
+    padding: 3px 5px;
+    gap: 3px;
+  }
+  .achievement-tag svg {
+    width: 9px;
+    height: 9px;
+  }
+}
+
+/* 320px — маленькие мобильные */
+@media (max-width: 320px) {
+  .slide {
+    padding: 55px 8px 15px;
+  }
+  .slide-nav {
+    display: none;
+  }
+  .page-close-btn {
+    top: 8px;
+    right: 8px;
+    width: 44px;
+    height: 44px;
+  }
+  .page-close-btn svg {
+    width: 22px;
+    height: 22px;
+  }
+
+  .section-title {
+    font-size: 14px;
+    margin-bottom: 10px;
+  }
+  .description-text {
+    font-size: 11px;
+    line-height: 1.5;
+    margin-bottom: 12px;
+  }
+  .description-box {
+    padding: 12px 8px 12px 12px;
+  }
+
+  .terminal-box {
+    display: none;
+  }
+
+  .stat-card {
+    padding: 10px;
+    border-radius: 10px;
+  }
+  .stat-number {
+    font-size: 1.4rem;
+  }
+  .stat-label {
+    font-size: 0.8rem;
+  }
+  .stat-sublabel {
+    font-size: 0.7rem;
+    margin-bottom: 8px;
+  }
+  .stat-icon {
+    width: 32px;
+    height: 32px;
+    margin-bottom: 8px;
+    border-radius: 8px;
+  }
+  .stat-icon svg {
+    width: 16px;
+    height: 16px;
+  }
+  .stat-btn {
+    padding: 5px 8px;
+    font-size: 8px;
+    border-radius: 6px;
+  }
+  .stat-number-bg {
+    font-size: 2.5rem;
+  }
+
+  .stats-grid {
+    gap: 8px;
+  }
+  .tech-tags {
+    gap: 4px;
+  }
+  .tech-tag {
+    padding: 3px 6px;
+    font-size: 8px;
+    border-radius: 15px;
+  }
+
+  .logo-bg {
+    display: none;
+  }
+  .scanlines {
+    display: none;
+  }
+
+  .scroll-indicator {
+    padding: 8px 16px;
+    border-radius: 8px;
+  }
+  .scroll-indicator span {
+    font-size: 11px;
+  }
+
+  .modal-header {
+    padding: 10px;
+  }
+  .modal-body {
+    padding: 10px;
+  }
+  .modal-title {
+    font-size: 14px;
+  }
+  .modal-close {
+    width: 26px;
+    height: 26px;
+  }
+  .modal-close svg {
+    width: 12px;
+    height: 12px;
+  }
+
+  .team-card {
+    padding: 10px;
+    gap: 8px;
+  }
+  .avatar-placeholder {
+    width: 34px;
+    height: 34px;
+    font-size: 12px;
+  }
+  .team-name {
+    font-size: 12px;
+  }
+  .team-role {
+    font-size: 9px;
+  }
+  .stack-tag {
+    padding: 2px 5px;
+    font-size: 8px;
+  }
+  .team-stats {
+    gap: 12px;
+  }
+  .team-stat .stat-value {
+    font-size: 14px;
+  }
+  .team-stat .stat-name {
+    font-size: 7px;
+  }
+
+  .review-card {
+    padding: 12px;
+  }
+  .review-avatar {
+    width: 32px;
+    height: 32px;
+    font-size: 11px;
+  }
+  .review-name {
+    font-size: 12px;
+  }
+  .review-text {
+    font-size: 10px;
+  }
+  .review-rating svg {
+    width: 10px;
+    height: 10px;
+  }
+  .review-project {
+    font-size: 8px;
+  }
+
+  .portfolio-card {
+    height: 140px;
+  }
+  .portfolio-content {
+    padding: 10px;
+  }
+  .portfolio-title {
+    font-size: 13px;
+  }
+  .portfolio-desc {
+    font-size: 10px;
+    -webkit-line-clamp: 1;
+  }
+  .portfolio-tag {
+    font-size: 7px;
+  }
+
+  .timeline {
+    padding-left: 22px;
+  }
+  .timeline-marker {
+    left: -22px;
+  }
+  .timeline-year {
+    font-size: 9px;
+  }
+  .timeline-dot {
+    width: 10px;
+    height: 10px;
+  }
+  .timeline-content {
+    padding: 10px;
+    margin-left: 6px;
+  }
+  .timeline-title {
+    font-size: 12px;
+  }
+  .timeline-desc {
+    font-size: 10px;
+  }
+  .achievement-tag {
+    font-size: 7px;
+    padding: 2px 4px;
+  }
+  .achievement-tag svg {
+    width: 8px;
+    height: 8px;
   }
 }
 
