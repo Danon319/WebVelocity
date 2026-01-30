@@ -2336,3 +2336,23 @@
     padding-bottom: 0.5rem;
   }
 }
+
+/* средние телефоны */
+@media (max-width: 375px) {
+  .hero-title {
+    font-size: 2rem;
+  }
+  .project-card {
+    height: 320px;
+  }
+}
+
+/* очень маленькие телефоны */
+@media (max-width: 320px) {
+  .hero-title {
+    font-size: 1.8rem;
+  }
+  .project-card {
+    height: 280px;
+  }
+}

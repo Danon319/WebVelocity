@@ -60,7 +60,7 @@
   --shadow-soft: 0 10px 40px rgba(0, 0, 0, 0.3);
 }
 
-/* --- LIGHT THEME OVERRIDES --- */
+
 [data-theme="light"] {
   --bg-color: #f0f2f5;
   --text-color: #1a202c;
