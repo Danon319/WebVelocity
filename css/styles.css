@@ -2458,4 +2458,7 @@
   .project-card {
     height: 280px;
   }
+  .header-logo {
+    font-size: 1rem;
+  }
 }
