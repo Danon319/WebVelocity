@@ -74,74 +74,76 @@
             </svg>
           </figure>
 
-          <article class="about-container">
-            <div class="description-box">
-              <h1 class="section-title" id="about-title">
-                &lt;О нашей команде /&gt;
-              </h1>
-              <div class="description-text">
-                <p>
-                  Мы разрабатываем цифровые решения любой сложности. Наша
-                  команда специализируется на <code>full-stack</code> подходе:
-                  мы создаем как визуальную часть сайта, так и его надежную
-                  серверную логику, скрытую от глаз пользователя.
-                </p>
-                <br />
-                <p>
-                  Для нас важен результат, который помогает бизнесу расти. Мы
-                  проектируем гибкую <code>архитектуру</code> системы и доводим
-                  продукт до запуска в <code>продакшен</code>, гарантируя его
-                  стабильную работу под высокими нагрузками.
-                </p>
-                <br />
-                <p>
-                  Каждый проект для нас — это партнёрство. Мы погружаемся в
-                  специфику вашего бизнеса, предлагаем оптимальные технические
-                  решения и остаёмся на связи даже после запуска, обеспечивая
-                  <code>поддержку</code> и развитие продукта.
-                </p>
-              </div>
-              <aside class="terminal-box" aria-label="Информация о команде">
-                <div class="terminal-header">
-                  <span class="terminal-dot red" aria-hidden="true"></span>
-                  <span class="terminal-dot yellow" aria-hidden="true"></span>
-                  <span class="terminal-dot green" aria-hidden="true"></span>
-                  <span class="terminal-title">~/webvelocity/about.sh</span>
+          <div class="about-flex-container">
+            <article class="about-container">
+              <div class="description-box">
+                <h1 class="section-title" id="about-title">
+                  &lt;О нашей команде /&gt;
+                </h1>
+                <div class="description-text">
+                  <p>
+                    Мы разрабатываем цифровые решения любой сложности. Наша
+                    команда специализируется на <code>full-stack</code> подходе:
+                    мы создаем как визуальную часть сайта, так и его надежную
+                    серверную логику, скрытую от глаз пользователя.
+                  </p>
+                  <br />
+                  <p>
+                    Для нас важен результат, который помогает бизнесу расти. Мы
+                    проектируем гибкую <code>архитектуру</code> системы и
+                    доводим продукт до запуска в <code>продакшен</code>,
+                    гарантируя его стабильную работу под высокими нагрузками.
+                  </p>
+                  <br />
+                  <p>
+                    Каждый проект для нас — это партнёрство. Мы погружаемся в
+                    специфику вашего бизнеса, предлагаем оптимальные технические
+                    решения и остаёмся на связи даже после запуска, обеспечивая
+                    <code>поддержку</code> и развитие продукта.
+                  </p>
                 </div>
-                <div class="terminal-body">
-                  <div class="terminal-line">
-                    <span class="prompt">$</span>
-                    <span class="command">cat team_info.txt</span>
+                <aside class="terminal-box" aria-label="Информация о команде">
+                  <div class="terminal-header">
+                    <span class="terminal-dot red" aria-hidden="true"></span>
+                    <span class="terminal-dot yellow" aria-hidden="true"></span>
+                    <span class="terminal-dot green" aria-hidden="true"></span>
+                    <span class="terminal-title">~/webvelocity/about.sh</span>
                   </div>
-                  <samp class="terminal-output">
-                    <span class="key">status:</span>
-                    <span class="success">"active"</span><br />
-                    <span class="key">projects:</span>
-                    <span class="value">87</span><br />
-                    <span class="key">stack:</span>
-                    <span class="value">["React", "Node", "Python"]</span>
-                  </samp>
-                </div>
-              </aside>
-            </div>
-          </article>
+                  <div class="terminal-body">
+                    <div class="terminal-line">
+                      <span class="prompt">$</span>
+                      <span class="command">cat team_info.txt</span>
+                    </div>
+                    <samp class="terminal-output">
+                      <span class="key">status:</span>
+                      <span class="success">"active"</span><br />
+                      <span class="key">projects:</span>
+                      <span class="value">87</span><br />
+                      <span class="key">stack:</span>
+                      <span class="value">["React", "Node", "Python"]</span>
+                    </samp>
+                  </div>
+                </aside>
+              </div>
+            </article>
 
-          <!-- Индикатор прокрутки -->
-          <button
-            class="scroll-indicator"
-            onclick="scrollToSlide2()"
-            aria-label="Перейти к следующему слайду"
-          >
-            <span>click</span>
-            <svg
-              viewBox="0 0 24 24"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              aria-hidden="true"
+            <!-- Индикатор прокрутки -->
+            <button
+              class="scroll-indicator"
+              onclick="scrollToSlide2()"
+              aria-label="Перейти к следующему слайду"
             >
-              <path d="M12 5v14M19 12l-7 7-7-7" />
-            </svg>
-          </button>
+              <span>click</span>
+              <svg
+                viewBox="0 0 24 24"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                aria-hidden="true"
+              >
+                <path d="M12 5v14M19 12l-7 7-7-7" />
+              </svg>
+            </button>
+          </div>
         </section>
 
         <!-- Слайд 2: Статистика команды -->
