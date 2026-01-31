@@ -291,70 +291,6 @@
   display: none;
 }
 
-@media (max-width: 1024px) {
-  .header-nav,
-  .header-btn {
-    display: none;
-  }
-  .mobile-burger {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    width: 22px;
-    height: 16px;
-    cursor: pointer;
-    margin-right: 1rem;
-  }
-  .mobile-burger span {
-    width: 100%;
-    height: 2px;
-    background-color: var(--header-text-color);
-    transition: 0.3s;
-  }
-
-  /* Выравнивание на планшете */
-  .header-content-slide {
-    justify-content: flex-start;
-  }
-  .header-logo {
-    margin-right: auto;
-  }
-}
-
-@media (max-width: 480px) {
-  .fixed-header {
-    top: 15px;
-    right: 15px;
-    /* На мобильном маленькая и там, и там */
-    height: 60px;
-    width: calc(100% - 30px);
-    border-radius: 30px;
-  }
-
-  .fixed-header.hero-mode {
-    width: 60px;
-    height: 60px;
-  }
-
-  .theme-switch {
-    width: 60px;
-    height: 60px;
-  }
-  .fixed-header.hero-mode .theme-switch {
-    width: 60px;
-    height: 60px;
-  }
-
-  .header-content-slide {
-    padding-left: 1.5rem;
-    padding-right: 0.5rem;
-    width: calc(100% - 60px);
-  }
-  .mobile-burger {
-    margin-right: 0.5rem;
-  }
-}
-
 /* ==========================================================================
    4. HERO SECTION
    ========================================================================== */
@@ -1960,25 +1896,7 @@
     /* Уменьшаем масштаб до 80%, чтобы влезла в экран */
     transform: scale(0.8);
   }
-  .header-nav,
-  .header-btn {
-    display: none;
-  }
-  .mobile-burger {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    width: 24px;
-    height: 18px;
-    cursor: pointer;
-    margin-right: 1rem;
-  }
-  .mobile-burger span {
-    width: 100%;
-    height: 2px;
-    background-color: var(--header-text-color);
-    transition: 0.3s;
-  }
+
   /* Выравниваем контент влево на планшете */
   .header-content-slide {
     justify-content: flex-start;
@@ -2100,6 +2018,25 @@
 
 /* --- 768px (Tablets) --- */
 @media (max-width: 768px) {
+  .header-nav,
+  .header-btn {
+    display: none;
+  }
+  .mobile-burger {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 22px;
+    height: 16px;
+    cursor: pointer;
+    margin-right: 1rem;
+  }
+  .mobile-burger span {
+    width: 100%;
+    height: 2px;
+    background-color: var(--header-text-color);
+    transition: 0.3s;
+  }
   /* HERO FIX (460px - 768px) */
   .hero-section {
     min-height: auto; /* Разрешаем растягиваться по высоте контента */
@@ -2249,6 +2186,40 @@
   .about-btn-arrow svg {
     width: 40px;
     height: 40px;
+  }
+}
+
+@media (max-width: 480px) {
+  .fixed-header {
+    top: 15px;
+    right: 15px;
+    /* На мобильном маленькая и там, и там */
+    height: 60px;
+    width: calc(100% - 30px);
+    border-radius: 30px;
+  }
+
+  .fixed-header.hero-mode {
+    width: 60px;
+    height: 60px;
+  }
+
+  .theme-switch {
+    width: 60px;
+    height: 60px;
+  }
+  .fixed-header.hero-mode .theme-switch {
+    width: 60px;
+    height: 60px;
+  }
+
+  .header-content-slide {
+    padding-left: 1.5rem;
+    padding-right: 0.5rem;
+    width: calc(100% - 60px);
+  }
+  .mobile-burger {
+    margin-right: 0.5rem;
   }
 }
 
