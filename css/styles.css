@@ -1028,6 +1028,7 @@
 .toggle-wrapper {
   display: flex;
   gap: 10px;
+  margin-top: 1rem;
   margin-bottom: 2rem;
   position: relative;
   z-index: 1;
@@ -1037,7 +1038,7 @@
   flex: 1;
   min-width: 50px;
   padding: 0.8rem 1.5rem;
-  font-size: 0.9rem;
+  font-size: 1rem;
 }
 
 .toggle-btn.active {
@@ -1347,19 +1348,22 @@
 }
 
 .submit-btn {
-  font-family: inherit;
+  font-family: var(--font-mono);
   font-size: 20px;
+  min-width: 250px;
   background: var(--primary-color);
   color: var(--bg-color);
-  padding: 0.7em 1em;
+  padding: 1em 1em;
   padding-left: 0.9em;
   display: flex;
   align-items: center;
   border: none;
+  justify-content: center;
   border-radius: 16px;
   overflow: hidden;
   transition: all 0.2s;
   cursor: pointer;
+  margin-bottom: 16px;
 }
 
 .submit-btn span {
@@ -1374,20 +1378,49 @@
   transition: transform 0.3s ease-in-out;
 }
 
-.submit-btn:hover {
+.submit-btn:focus-visible {
   background-color: var(--secondary-color);
 }
 
-.submit-btn:hover .svg-wrapper {
-  animation: fly-1 0.6s ease-in-out infinite alternate;
+/* Стили для десктопа (hover) */
+@media (hover: hover) and (pointer: fine) {
+  .submit-btn:hover {
+    background-color: var(--secondary-color);
+  }
+
+  .submit-btn:hover .svg-wrapper {
+    animation: fly-1 0.6s ease-in-out infinite alternate;
+  }
+
+  .submit-btn:hover svg {
+    transform: translateX(5em) rotate(45deg) scale(1.1);
+  }
+
+  .submit-btn:hover span {
+    transform: translateX(20em);
+  }
 }
 
-.submit-btn:hover svg {
-  transform: translateX(3em) rotate(45deg) scale(1.1);
-}
+/* Стили для тач-устройств */
+@media (hover: none) and (pointer: coarse) {
+  .submit-btn:active {
+    background-color: var(--secondary-color);
+  }
 
-.submit-btn:hover span {
-  transform: translateX(6em);
+  .submit-btn:active .svg-wrapper {
+    animation: fly-1 0.6s ease-in-out 3 alternate;
+    /* 3 повтора × 0.6s = 1.8 секунды анимации */
+  }
+
+  .submit-btn:active svg {
+    transform: translateX(3em) rotate(45deg) scale(1.1);
+    transition: transform 2s ease-in-out;
+  }
+
+  .submit-btn:active span {
+    transform: translateX(6em);
+    transition: transform 2s ease-in-out;
+  }
 }
 
 .submit-btn:active {
@@ -1756,9 +1789,6 @@
 
 /* --- 1440px+ (Large Screens) --- */
 @media (min-width: 1441px) {
-  :root {
-    font-size: 18px;
-  }
   .hero-container,
   .contact-section,
   .pricing-section,
@@ -1902,6 +1932,11 @@
 
   .btn-wave::before {
     inset: -9px;
+  }
+
+  .submit-btn {
+    padding: 0.7em 1em;
+    min-width: 250px;
   }
 }
 
@@ -2152,6 +2187,10 @@
   .btn-wave:hover {
     transform: translateY(-1px);
   }
+
+  .submit-btn {
+    padding: 0.5em 1em;
+  }
 }
 
 @media (max-width: 480px) {
@@ -2310,19 +2349,14 @@
     background: transparent;
     box-shadow: none;
     border: none;
-    padding: 0;
-    border-radius: 0;
+    padding: 0 0 40px 0;
+    border-bottom: 2px solid var(--border-color);
   }
   .form-input,
   .form-select,
   .form-textarea {
     font-size: 16px !important;
-    background: #15181e;
     border: 1px solid rgba(255, 255, 255, 0.1);
-  }
-  .submit-btn {
-    white-space: normal;
-    box-shadow: 0 4px 15px rgba(168, 213, 226, 0.2);
   }
 
   /* Footer Tab */
@@ -2439,5 +2473,9 @@
 
   .btn-wave::before {
     inset: -4px;
+  }
+
+  .submit-btn {
+    min-width: 130px;
   }
 }
