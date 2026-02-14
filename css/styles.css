@@ -1341,11 +1341,16 @@
   margin-left: 10px;
 }
 
+.form-button-container {
+  display: flex;
+  justify-content: center;
+}
+
 .submit-btn {
   font-family: inherit;
   font-size: 20px;
-  background: royalblue;
-  color: white;
+  background: var(--primary-color);
+  color: var(--bg-color);
   padding: 0.7em 1em;
   padding-left: 0.9em;
   display: flex;
@@ -1369,16 +1374,20 @@
   transition: transform 0.3s ease-in-out;
 }
 
+.submit-btn:hover {
+  background-color: var(--secondary-color);
+}
+
 .submit-btn:hover .svg-wrapper {
   animation: fly-1 0.6s ease-in-out infinite alternate;
 }
 
 .submit-btn:hover svg {
-  transform: translateX(1.2em) rotate(45deg) scale(1.1);
+  transform: translateX(3em) rotate(45deg) scale(1.1);
 }
 
 .submit-btn:hover span {
-  transform: translateX(5em);
+  transform: translateX(6em);
 }
 
 .submit-btn:active {
