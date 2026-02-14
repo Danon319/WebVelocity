@@ -1349,6 +1349,7 @@
 
 .submit-btn {
   font-family: var(--font-mono);
+  font-weight: 700;
   font-size: 20px;
   min-width: 250px;
   background: var(--primary-color);
@@ -1382,49 +1383,43 @@
   background-color: var(--secondary-color);
 }
 
-/* Стили для десктопа (hover) */
-@media (hover: hover) and (pointer: fine) {
-  .submit-btn:hover {
-    background-color: var(--secondary-color);
-  }
-
-  .submit-btn:hover .svg-wrapper {
-    animation: fly-1 0.6s ease-in-out infinite alternate;
-  }
-
-  .submit-btn:hover svg {
-    transform: translateX(5em) rotate(45deg) scale(1.1);
-  }
-
-  .submit-btn:hover span {
-    transform: translateX(20em);
-  }
+.submit-btn:hover {
+  background-color: var(--secondary-color);
 }
 
-/* Стили для тач-устройств */
-@media (hover: none) and (pointer: coarse) {
-  .submit-btn:active {
-    background-color: var(--secondary-color);
-  }
+.submit-btn:hover .svg-wrapper {
+  animation: fly-1 0.6s ease-in-out infinite alternate;
+}
 
-  .submit-btn:active .svg-wrapper {
-    animation: fly-1 0.6s ease-in-out 3 alternate;
-    /* 3 повтора × 0.6s = 1.8 секунды анимации */
-  }
+.submit-btn:hover svg {
+  transform: translateX(3em) rotate(45deg) scale(1.1);
+}
 
-  .submit-btn:active svg {
-    transform: translateX(3em) rotate(45deg) scale(1.1);
-    transition: transform 2s ease-in-out;
-  }
-
-  .submit-btn:active span {
-    transform: translateX(6em);
-    transition: transform 2s ease-in-out;
-  }
+.submit-btn:hover span {
+  transform: translateX(6em);
 }
 
 .submit-btn:active {
   transform: scale(0.95);
+}
+
+/* Анимация для тач-устройств */
+@media (hover: none) and (pointer: coarse) {
+  .submit-btn.touch-active {
+    background-color: var(--secondary-color);
+  }
+
+  .submit-btn.touch-active .svg-wrapper {
+    animation: fly-1 0.6s ease-in-out infinite alternate;
+  }
+
+  .submit-btn.touch-active svg {
+    transform: translateX(3em) rotate(45deg) scale(1.1);
+  }
+
+  .submit-btn.touch-active span {
+    transform: translateX(6em);
+  }
 }
 
 @keyframes fly-1 {
@@ -1453,7 +1448,7 @@
   border: 2px solid var(--primary-color);
   border-radius: var(--border-radius);
   font-family: var(--font-mono);
-  font-weight: 500;
+  font-weight: 700;
   text-align: center;
   cursor: pointer;
   position: relative;
@@ -2189,7 +2184,7 @@
   }
 
   .submit-btn {
-    padding: 0.5em 1em;
+    padding: 0.6em 1em;
   }
 }
 
