@@ -124,6 +124,7 @@
   white-space: nowrap;
   text-decoration: none;
   letter-spacing: 1px;
+  user-select: none;
 }
 .header-btn::before {
   content: "";
@@ -208,6 +209,34 @@
   transform: rotate(0deg) scale(1);
 }
 
+.mobile-menu-dropdown {
+  position: absolute;
+  top: 75px;
+  right: 0;
+  width: 250px;
+  background: var(--nav-bg);
+  backdrop-filter: blur(20px);
+  border: 1px solid var(--border-color);
+  border-radius: 20px;
+  padding: 0;
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition: all 0.4s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.mobile-menu-dropdown.active {
+  max-height: 400px;
+  padding: 2rem 0;
+  opacity: 1;
+}
+
+.mobile-burger {
+  display: none;
+}
+
 /* =========================================
    2. HERO MODE (Сжатое состояние - БОЛЬШАЯ КНОПКА)
    ========================================= */
@@ -258,37 +287,6 @@
     transform: scale(1.05);
     background: var(--accent-color);
   }
-}
-
-/* =========================================
-   АДАПТАЦИЯ
-   ========================================= */
-.mobile-menu-dropdown {
-  position: absolute;
-  top: 75px;
-  right: 0;
-  width: 250px;
-  background: var(--nav-bg);
-  backdrop-filter: blur(20px);
-  border: 1px solid var(--border-color);
-  border-radius: 20px;
-  padding: 0;
-  max-height: 0;
-  overflow: hidden;
-  opacity: 0;
-  transition: all 0.4s ease;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-.mobile-menu-dropdown.active {
-  max-height: 400px;
-  padding: 2rem 0;
-  opacity: 1;
-}
-
-.mobile-burger {
-  display: none;
 }
 
 /* ==========================================================================
@@ -415,7 +413,7 @@
     width: 0;
   }
   to {
-    width: 100%;
+    width: calc(100% - 5%);
   }
 }
 @keyframes blink-caret {
@@ -440,34 +438,15 @@
   gap: 1.5rem;
   margin-bottom: 3rem;
 }
-.hero-btn {
-  padding: 1rem 2rem;
-  border-radius: var(--border-radius);
-  font-weight: 700;
-  font-family: var(--font-mono);
-  font-size: 1rem;
-  transition: var(--transition);
-}
-.hero-btn.primary {
-  background: var(--primary-color);
+
+.btn-outline-fill.hero-btn-filled {
+  background-color: var(--primary-color);
   color: var(--bg-color);
 }
-.hero-btn.primary:hover {
-  background: var(--secondary-color);
-  box-shadow: 0 5px 15px rgba(243, 166, 131, 0.15);
-  transform: var(--btn-translateY);
-}
-.hero-btn.outline {
-  background: transparent;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  color: var(--header-text-color);
-}
-[data-theme="light"] .hero-btn.outline {
-  border-color: rgba(0, 0, 0, 0.2);
-}
-.hero-btn.outline:hover {
-  border-color: var(--primary-color);
-  color: var(--primary-color);
+
+.btn-outline-fill.hero-btn-filled:active {
+  background-color: var(--secondary-color);
+  border-color: var(--secondary-color);
 }
 
 .hero-stats {
@@ -578,12 +557,7 @@
   text-align: center;
   margin-bottom: 4rem;
 }
-.features-header h2 {
-  font-family: var(--font-mono);
-  color: var(--primary-color);
-  font-size: 2.5rem;
-  margin-bottom: 1rem;
-}
+
 .features-header p {
   color: var(--text-color);
   font-size: 1.1rem;
@@ -681,12 +655,7 @@
   text-align: center;
   margin-bottom: 3rem;
 }
-.projects-header h2 {
-  font-family: var(--font-mono);
-  color: var(--primary-color);
-  font-size: 2.5rem;
-  margin-bottom: 1rem;
-}
+
 .projects-header p {
   color: var(--text-color);
   font-size: 1.1rem;
@@ -704,6 +673,7 @@
   position: relative;
   display: block;
   height: 450px;
+  min-height: 350px;
   border-radius: 20px;
   overflow: hidden;
   text-decoration: none;
@@ -793,15 +763,9 @@
   opacity: 0.8;
 }
 
-.fake-btn {
-  display: inline-flex;
+.btn-outline-fill.fake-btn {
   align-items: center;
   padding: 0.8rem 1.5rem;
-  background: var(--primary-color);
-  color: var(--bg-color);
-  font-family: var(--font-mono);
-  font-weight: 700;
-  border-radius: var(--border-radius);
   text-transform: uppercase;
   font-size: 0.9rem;
   opacity: 0;
@@ -811,7 +775,6 @@
 
 .fake-btn:hover {
   background: var(--secondary-color);
-  box-shadow: 0 5px 15px rgba(243, 166, 131, 0.15);
   transform: var(--btn-translateY);
 }
 
@@ -835,12 +798,7 @@
   text-align: center;
   margin-bottom: 4rem;
 }
-.pricing-header h2 {
-  font-family: var(--font-mono);
-  color: var(--primary-color);
-  font-size: 2.5rem;
-  margin-bottom: 1rem;
-}
+
 .pricing-header p {
   color: var(--text-color);
   max-width: 600px;
@@ -954,35 +912,14 @@
   font-family: var(--font-mono);
 }
 
-.pricing-btn {
-  display: block;
-  width: 100%;
-  padding: 1rem;
-  text-align: center;
-  border: 1px solid var(--primary-color);
-  color: var(--primary-color);
-  text-decoration: none;
-  border-radius: var(--border-radius);
-  font-weight: 700;
-  font-family: var(--font-mono);
-  transition: var(--transition);
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  font-size: 0.9rem;
-}
-.pricing-btn:hover {
-  background: rgba(168, 213, 226, 0.1);
-  box-shadow: 0 5px 15px rgba(243, 166, 131, 0.15);
-  transform: var(--btn-translateY);
-}
-.pricing-btn.filled {
-  background: var(--primary-color);
+.btn-outline-fill.pricing-btn-filled {
+  background-color: var(--primary-color);
   color: var(--bg-color);
 }
-.pricing-btn.filled:hover {
-  background: var(--secondary-color);
+
+.btn-outline-fill.pricing-btn-filled:active {
+  background-color: var(--secondary-color);
   border-color: var(--secondary-color);
-  color: var(--bg-color);
 }
 
 /* ==========================================================================
@@ -1025,31 +962,28 @@
   display: flex;
   align-items: center;
   gap: 1rem;
-}
-.detail-item a {
   color: var(--header-text-color);
   text-decoration: none;
   transition: color 0.3s ease;
 }
-.detail-item a:hover {
+
+.detail-item :hover {
   color: var(--primary-color);
 }
 
 .icon-box {
   width: 45px;
   height: 45px;
-  background: var(--accent-color);
+  background: var(--primary-color);
   border-radius: var(--border-radius);
   display: flex;
   align-items: center;
   justify-content: center;
-  color: var(--primary-color);
-  font-size: 1.2rem;
   transition: var(--transition);
   flex-shrink: 0;
 }
 .detail-item:hover .icon-box {
-  background: var(--primary-color);
+  background: var(--secondary-color);
   color: var(--bg-color);
 }
 
@@ -1099,24 +1033,11 @@
   z-index: 1;
 }
 
-.toggle-btn {
+.btn-outline-fill.toggle-btn {
   flex: 1;
+  min-width: 50px;
   padding: 0.8rem 1.5rem;
-  background: var(--toggle-bg);
-  border: 2px solid transparent;
-  border-radius: var(--border-radius);
-  color: var(--text-color);
-  font-family: var(--font-mono);
   font-size: 0.9rem;
-  font-weight: 600;
-  cursor: pointer;
-  transition: var(--transition);
-  text-transform: uppercase;
-  letter-spacing: 1px;
-}
-
-.toggle-btn:hover {
-  border-color: var(--primary-color);
 }
 
 .toggle-btn.active {
@@ -1421,45 +1342,62 @@
 }
 
 .submit-btn {
-  display: inline-flex;
+  font-family: inherit;
+  font-size: 20px;
+  background: royalblue;
+  color: white;
+  padding: 0.7em 1em;
+  padding-left: 0.9em;
+  display: flex;
   align-items: center;
-  justify-content: center;
-  width: 100%;
-  background: var(--primary-color);
-  color: var(--bg-color);
-  padding: 1.2rem;
   border: none;
-  border-radius: var(--border-radius);
-  font-size: 1rem;
-  font-weight: 700;
+  border-radius: 16px;
+  overflow: hidden;
+  transition: all 0.2s;
   cursor: pointer;
-  transition: var(--transition);
-  font-family: var(--font-mono);
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  position: relative;
-  z-index: 1;
 }
 
-.submit-btn:hover {
-  background: var(--secondary-color);
-  transform: var(--btn-translateY);
-  box-shadow: 0 5px 15px rgba(243, 166, 131, 0.15);
+.submit-btn span {
+  display: block;
+  margin-left: 0.3em;
+  transition: all 0.3s ease-in-out;
 }
 
 .submit-btn svg {
-  margin-left: 10px;
-  transition: var(--transition);
+  display: block;
+  transform-origin: center center;
+  transition: transform 0.3s ease-in-out;
+}
+
+.submit-btn:hover .svg-wrapper {
+  animation: fly-1 0.6s ease-in-out infinite alternate;
 }
 
 .submit-btn:hover svg {
-  transform: translateX(5px);
+  transform: translateX(1.2em) rotate(45deg) scale(1.1);
+}
+
+.submit-btn:hover span {
+  transform: translateX(5em);
+}
+
+.submit-btn:active {
+  transform: scale(0.95);
+}
+
+@keyframes fly-1 {
+  from {
+    transform: translateY(0.1em);
+  }
+
+  to {
+    transform: translateY(-0.1em);
+  }
 }
 
 /* ==========================================================================
    9. INFORMATION-COMPANY SECTION
    ========================================================================== */
-/* Центрированная секция */
 .information_company-section {
   display: flex;
   justify-content: center;
@@ -1467,135 +1405,77 @@
   padding: 50px;
 }
 
-/* Кнопка с фиксированной шириной */
-.about-btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 16px;
-  padding: 16px 24px;
-  background: rgba(15, 17, 21, 0.8);
-  border: 1px solid rgba(168, 213, 226, 0.3);
-  border-radius: 12px;
-  text-decoration: none;
+.btn-wave {
+  background: var(--accent-color);
+  color: var(--text-color);
+  border: 2px solid var(--primary-color);
+  border-radius: var(--border-radius);
+  font-family: var(--font-mono);
+  font-weight: 500;
+  text-align: center;
   cursor: pointer;
-  transition: all 0.3s ease;
   position: relative;
-  overflow: hidden;
-  max-width: 100%;
-  animation: shimmer-border 2s ease-in-out infinite;
+  overflow: visible;
+  transition: var(--transition);
+  outline: none;
+  box-sizing: border-box;
+  padding: 20px 56px;
+  font-size: 16px;
+  min-width: 240px;
+  user-select: none;
 }
 
-/* Эффект мерцающего бордера */
-@keyframes shimmer-border {
-  0%,
-  100% {
-    border-color: rgba(168, 213, 226, 0.2);
-    box-shadow: 0 0 5px rgba(168, 213, 226, 0.1);
-  }
-  50% {
-    border-color: rgba(168, 213, 226, 0.6);
-    box-shadow: 0 0 15px rgba(168, 213, 226, 0.3);
-  }
-}
-
-/* Левая полоска при наведении */
-.about-btn::before {
+.btn-wave::before {
   content: "";
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 3px;
-  height: 100%;
-  background: linear-gradient(180deg, #a8d5e2, #f3a683);
+  inset: -10px;
+  border: 2px solid var(--secondary-color);
+  border-radius: var(--border-radius);
   opacity: 0;
-  transition: opacity 0.3s ease;
+  transform: scale(0.8);
+  transition: var(--transition);
+  pointer-events: none;
 }
 
-.about-btn:hover {
-  background: rgba(48, 54, 66, 0.5);
-  border-color: #a8d5e2;
-  transform: translateY(-3px);
-  box-shadow: 0 10px 30px rgba(168, 213, 226, 0.1);
-  animation: none; /* Останавливаем мерцание при наведении */
+.btn-wave:hover {
+  border-color: var(--secondary-color);
+  box-shadow: 0 0 30px rgba(243, 166, 131, 0.3);
+  transform: var(--btn-translateY);
 }
 
-.about-btn:hover::before {
-  opacity: 1;
+.btn-wave:hover::before {
+  opacity: 0.6;
+  transform: scale(1.1);
 }
 
-/* Иконка */
-.about-btn-icon {
-  width: 80px;
-  height: 80px;
-  background: rgba(168, 213, 226, 0.1);
-  border-radius: 10px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: all 0.3s ease;
-  flex-shrink: 0;
+.btn-wave:active {
+  transform: translateY(0) scale(0.98);
+  border-color: var(--primary-color);
+  animation: trigger-delay 0.1s forwards;
 }
 
-.about-btn-icon svg {
-  width: 44px;
-  height: 44px;
-  color: #a8d5e2;
-  transition: all 0.3s ease;
-}
-
-.about-btn:hover .about-btn-icon {
-  background: #a8d5e2;
-  transform: scale(1.1) rotate(5deg);
-}
-
-.about-btn:hover .about-btn-icon svg {
-  color: #0f1115;
-}
-
-/* Контент */
-.about-btn-content {
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-}
-
-.about-btn-label {
-  font-family: var(--font-mono);
-  font-size: 1rem;
-  color: #94a3b8;
-  letter-spacing: 1px;
-}
-
-.about-btn-title {
-  font-family: var(--font-main);
-  font-size: 2rem;
-  color: #e9edf2;
-  transition: color 0.3s ease;
-  white-space: nowrap;
-}
-
-.about-btn:hover .about-btn-title {
-  color: #a8d5e2;
-}
-
-/* Стрелка */
-.about-btn-arrow {
-  margin-left: auto;
+.btn-wave:active::before {
   opacity: 0;
-  transform: translateX(-10px);
-  transition: all 0.3s ease;
-  flex-shrink: 0;
+  transform: scale(0.7);
+  transition: all 0.2s ease;
 }
 
-.about-btn-arrow svg {
-  width: 50px;
-  height: 50px;
-  color: #f3a683;
+.btn-wave:focus-visible {
+  outline: 2px solid var(--primary-color);
+  outline-offset: 4px;
 }
 
-.about-btn:hover .about-btn-arrow {
-  opacity: 1;
-  transform: translateX(0);
+.btn-wave:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+@keyframes trigger-delay {
+  to {
+    color: var(--bg-color);
+    background-color: var(--primary-color);
+  }
 }
 
 /* ==========================================================================
@@ -1641,18 +1521,22 @@
 .social-icon {
   width: 40px;
   height: 40px;
-  background: var(--accent-color);
+  background: var(--primary-color);
   display: flex;
   align-items: center;
   justify-content: center;
   border-radius: 8px;
-  color: var(--header-text-color);
   transition: var(--transition);
 }
 .social-icon:hover {
-  background: var(--primary-color);
-  color: var(--bg-color);
+  background: var(--secondary-color);
   transform: translateY(-3px);
+}
+
+.icon {
+  height: 25px;
+  width: 25px;
+  pointer-events: none;
 }
 
 .footer-col h3 {
@@ -1716,21 +1600,9 @@
   border-color: var(--secondary-color);
   background: #252a33;
 }
-.newsletter-btn {
-  background: var(--primary-color);
+.btn-outline-fill.newsletter-btn {
+  background-color: var(--primary-color);
   color: var(--bg-color);
-  padding: 0.8rem;
-  border: none;
-  border-radius: var(--border-radius);
-  cursor: pointer;
-  font-weight: 700;
-  font-family: var(--font-mono);
-  transition: var(--transition);
-}
-.newsletter-btn:hover {
-  background: var(--secondary-color);
-  box-shadow: 0 5px 15px rgba(243, 166, 131, 0.15);
-  transform: var(--btn-translateY);
 }
 
 .footer-bottom {
@@ -1809,8 +1681,65 @@
 }
 
 /* ==========================================================================
-   10. MODAL WINDOW (ABOUT / TERMINAL)
+   Общее для всех секций
+     - Плавные переходы для интерактивных элементов
+     - Универсальные классы для отступов и центровки
    ========================================================================== */
+
+.btn-outline-fill {
+  padding: 16px 40px;
+  min-width: 200px;
+  background: transparent;
+  color: var(--primary-color);
+  border: 2px solid var(--primary-color);
+  border-radius: var(--border-radius);
+  font-family: var(--font-mono);
+  font-size: 16px;
+  font-weight: 700;
+  text-align: center;
+  cursor: pointer;
+  transition:
+    background-color var(--transition-time, 0.3s),
+    border-color var(--transition-time, 0.3s),
+    color var(--transition-time, 0.3s);
+  outline: none;
+  text-decoration: none;
+  display: inline-block;
+  box-sizing: border-box;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+@media (hover: hover) {
+  .btn-outline-fill:hover {
+    background: var(--secondary-color);
+    color: var(--bg-color);
+    border-color: var(--secondary-color);
+    transform: var(--btn-translateY);
+    transition:
+      background-color var(--transition-time, 0.3s),
+      border-color var(--transition-time, 0.3s),
+      color var(--transition-time, 0.3s),
+      transform var(--transition-time, 0.3s);
+  }
+}
+
+.btn-outline-fill:active {
+  background-color: var(--primary-color);
+  border-color: var(--primary-color);
+  color: var(--bg-color);
+  transform: translateY(0);
+  transition:
+    background-color 0.1s,
+    border-color 0.1s,
+    color 0.1s,
+    transform 0.1s;
+}
+
+.btn-outline-fill:focus-visible {
+  outline: 2px solid var(--primary-color);
+  outline-offset: 2px;
+}
 
 /* ==========================================================================
    11. MEDIA QUERIES (RESPONSIVE)
@@ -1862,6 +1791,16 @@
   }
   .contact-form {
     padding: 4rem;
+  }
+
+  .btn-wave {
+    padding: 16px 40px;
+    font-size: 20px;
+    min-width: 200px;
+  }
+
+  .btn-wave::before {
+    inset: -10px;
   }
 }
 
@@ -1924,14 +1863,11 @@
   }
 
   /* --- FIX: Кнопка проекта всегда видна на тач-скринах --- */
-  .fake-btn {
+  .btn-outline-fill.fake-btn {
     opacity: 1; /* Полная видимость */
     transform: translateY(0); /* Стоит на месте */
 
     /* Делаем её чуть более явной (полупрозрачный фон) */
-    background: var(--primary-color);
-    color: var(--bg-color);
-    border: 1px solid transparent;
   }
 
   /* Текст описания тоже сразу на месте (не выезжает снизу) */
@@ -1947,6 +1883,16 @@
       var(--proj-grad-mid) 70%,
       var(--proj-grad-end) 100%
     );
+  }
+
+  .btn-wave {
+    padding: 14px 36px;
+    font-size: 17px;
+    min-width: 180px;
+  }
+
+  .btn-wave::before {
+    inset: -9px;
   }
 }
 
@@ -2099,13 +2045,6 @@
   .pricing-card:hover {
     transform: none;
   }
-  .fake-btn {
-    opacity: 1;
-    transform: translateY(0);
-    background: rgba(168, 213, 226, 0.2);
-    color: var(--primary-color);
-    border: 1px solid var(--primary-color);
-  }
   .project-info {
     transform: translateY(0);
   }
@@ -2187,6 +2126,23 @@
     width: 40px;
     height: 40px;
   }
+
+  .contact-info h1 {
+    font-size: 2.5rem;
+  }
+  .btn-wave {
+    padding: 13px 32px;
+    font-size: 14px;
+    min-width: 160px;
+  }
+
+  .btn-wave::before {
+    inset: -8px;
+  }
+
+  .btn-wave:hover {
+    transform: translateY(-1px);
+  }
 }
 
 @media (max-width: 480px) {
@@ -2220,6 +2176,17 @@
   }
   .mobile-burger {
     margin-right: 0.5rem;
+  }
+  .btn-wave {
+    padding: 12px 28px;
+    font-size: 14px;
+    min-width: 140px;
+    width: 100%;
+    max-width: 280px;
+  }
+
+  .btn-wave::before {
+    inset: -6px;
   }
 }
 
@@ -2273,10 +2240,6 @@
     gap: 1rem;
     width: 100%;
   }
-  .hero-btn {
-    width: 100%;
-    text-align: center;
-  }
 
   .projects-section,
   .pricing-section,
@@ -2298,7 +2261,7 @@
     overflow: hidden;
     margin-bottom: 1rem;
   }
-  .fake-btn {
+  .btn-outline-fill.fake-btn {
     width: 100%;
     justify-content: center;
   }
@@ -2339,6 +2302,7 @@
     box-shadow: none;
     border: none;
     padding: 0;
+    border-radius: 0;
   }
   .form-input,
   .form-select,
@@ -2401,6 +2365,10 @@
     display: flex;
     flex-direction: column;
   }
+
+  .contact-info h1 {
+    font-size: 2.2rem;
+  }
 }
 
 /* средние телефоны */
@@ -2419,6 +2387,24 @@
   .about-btn-title {
     font-size: 1rem;
   }
+
+  .project-title {
+    font-size: 1.5rem;
+  }
+
+  .contact-info h1 {
+    font-size: 2rem;
+  }
+  .btn-wave {
+    padding: 11px 24px;
+    font-size: 13px;
+    min-width: 130px;
+    max-width: 260px;
+  }
+
+  .btn-wave::before {
+    inset: -5px;
+  }
 }
 
 /* очень маленькие телефоны */
@@ -2431,5 +2417,18 @@
   }
   .header-logo {
     font-size: 1rem;
+  }
+  .contact-info h1 {
+    font-size: 1.8rem;
+  }
+  .btn-wave {
+    padding: 10px 20px;
+    font-size: 13px;
+    min-width: 120px;
+    max-width: 240px;
+  }
+
+  .btn-wave::before {
+    inset: -4px;
   }
 }

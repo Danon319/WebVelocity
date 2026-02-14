@@ -191,7 +191,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         const mapBtn = document.createElement('button');
         mapBtn.className = 'btn btn-map';
-        mapBtn.textContent = '📍 Открыть на карте';
+        mapBtn.textContent = 'Открыть на карте';
         mapBtn.type = 'button';
         mapBtn.addEventListener('click', (e) => {
           e.stopPropagation();
