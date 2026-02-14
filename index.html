@@ -72,8 +72,6 @@
           </svg>
         </div>
       </button>
-
-      <!-- Мобильное меню -->
       <div class="mobile-menu-dropdown" id="mobile-menu">
         <a href="#projects" class="mobile-link">Проекты</a>
         <a href="#services" class="mobile-link">Услуги</a>
@@ -94,7 +92,8 @@
 
           <h1 class="hero-title">
             We turn <span class="highlight">Ideas</span><br />
-            into <span class="typewriter-text">Digital Reality</span>
+            into<br />
+            <span class="typewriter-text">Digital Reality</span>
           </h1>
 
           <p class="hero-subtitle">
@@ -103,8 +102,12 @@
           </p>
 
           <div class="hero-actions">
-            <a href="#contact" class="hero-btn primary">Обсудить проект</a>
-            <a href="#projects" class="hero-btn outline">Смотреть портфолио</a>
+            <a href="#contact" class="btn-outline-fill hero-btn-filled"
+              >Обсудить проект</a
+            >
+            <a href="#projects" class="btn-outline-fill hero-btn-empty"
+              >Смотреть портфолио</a
+            >
           </div>
 
           <div class="hero-stats">
@@ -134,7 +137,7 @@
       <!-- Features -->
       <section class="features-section">
         <div class="features-header">
-          <h2>&lt;Почему мы /&gt;</h2>
+          <h2 class="section-title">&lt;Почему мы /&gt;</h2>
           <p>
             Мы не просто пишем код, мы строим фундамент вашего цифрового
             бизнеса.
@@ -246,7 +249,7 @@
       <!-- Projects -->
       <section id="projects" class="projects-section">
         <div class="projects-header">
-          <h2>&lt;Наши Проекты /&gt;</h2>
+          <h2 class="section-title">&lt;Наши Проекты /&gt;</h2>
           <p>
             Реальные кейсы, которые приносят прибыль и трансформируют бизнес.
           </p>
@@ -267,7 +270,7 @@
                   Разработка корпоративного портала для архитектурного бюро со
                   строгим стилем.
                 </p>
-                <div class="fake-btn">
+                <div class="btn-outline-fill fake-btn">
                   Смотреть кейс <span class="arrow">→</span>
                 </div>
               </div>
@@ -288,7 +291,7 @@
                   Промо-сайт для AAA-шутера с интерактивными элементами и
                   геймификацией.
                 </p>
-                <div class="fake-btn">
+                <div class="btn-outline-fill fake-btn">
                   Смотреть кейс <span class="arrow">→</span>
                 </div>
               </div>
@@ -309,7 +312,7 @@
                   Лендинг для промышленной компании с акцентом на надежность и
                   инновации.
                 </p>
-                <div class="fake-btn">
+                <div class="btn-outline-fill fake-btn">
                   Смотреть кейс <span class="arrow">→</span>
                 </div>
               </div>
@@ -321,7 +324,7 @@
       <!-- Pricing -->
       <section id="pricing" class="pricing-section">
         <div class="pricing-header">
-          <h2>&lt;Выбор тарифа /&gt;</h2>
+          <h2 class="section-title">&lt;Выбор тарифа /&gt;</h2>
           <p>
             Честные цены за чистый код. Никаких скрытых платежей, только
             результат.
@@ -346,7 +349,7 @@
                 <span class="cross">×</span> Админ-панель (CMS)
               </li>
             </ul>
-            <a href="#contact" class="pricing-btn">Выбрать план</a>
+            <a href="#contact" class="btn-outline-fill">Выбрать план</a>
           </div>
 
           <div class="pricing-card popular">
@@ -365,7 +368,9 @@
               <li><span class="check">✓</span> Расширенное SEO</li>
               <li><span class="check">✓</span> Интеграция с CRM</li>
             </ul>
-            <a href="#contact" class="pricing-btn filled">Выбрать план</a>
+            <a href="#contact" class="btn-outline-fill pricing-btn-filled"
+              >Выбрать план</a
+            >
           </div>
 
           <div class="pricing-card">
@@ -383,7 +388,7 @@
               <li><span class="check">✓</span> Синхронизация с 1С</li>
               <li><span class="check">✓</span> Техподдержка 1 месяц</li>
             </ul>
-            <a href="#contact" class="pricing-btn">Выбрать план</a>
+            <a href="#contact" class="btn-outline-fill">Выбрать план</a>
           </div>
         </div>
       </section>
@@ -398,28 +403,55 @@
               разработчиков свяжется с вами в течение 24 часов.
             </p>
             <address class="contact-details">
-              <div class="detail-item">
-                <div class="icon-box">@</div>
-                <span
-                  ><a href="mailto:hello@webagency.dev"
-                    >hello@webagency.dev</a
-                  ></span
-                >
-              </div>
-              <div class="detail-item">
-                <div class="icon-box">#</div>
-                <span><a href="tel:+79991234567">+7 (999) 123-45-67</a></span>
-              </div>
-              <div class="detail-item">
-                <div class="icon-box">📍</div>
-                <span
-                  ><a
-                    href="https://yandex.ru/maps/?text=Москва,+Красная+площадь,+д.+1"
-                    target="_blank"
-                    >Москва, Красная площадь, д. 1</a
-                  ></span
-                >
-              </div>
+              <a class="detail-item" href="mailto:hello@webagency.dev">
+                <div class="icon-box">
+                  <object
+                    type="image/svg+xml"
+                    data="./assets/icon/icon_email.svg"
+                    class="icon email-icon"
+                  >
+                    <img
+                      src="./assets/images/icon_email.png"
+                      alt="иконка почты"
+                    />
+                  </object>
+                </div>
+                <span>hello@webagency.dev</span>
+              </a>
+              <a class="detail-item" href="tel:+79991234567">
+                <div class="icon-box">
+                  <object
+                    type="image/svg+xml"
+                    data="./assets/icon/icon_phone.svg"
+                    class="icon phone-icon"
+                  >
+                    <img
+                      src="./assets/images/icon_phone.png"
+                      alt="иконка телефона"
+                    />
+                  </object>
+                </div>
+                <span>+7 (999) 123-45-67</span>
+              </a>
+              <a
+                class="detail-item"
+                href="https://yandex.ru/maps/?text=Москва,+Красная+площадь,+д.+1"
+                target="_blank"
+              >
+                <div class="icon-box">
+                  <object
+                    type="image/svg+xml"
+                    data="./assets/icon/icon_map.svg"
+                    class="icon maps-icon"
+                  >
+                    <img
+                      src="./assets/images/icon_map.png"
+                      alt="иконка карты"
+                    />
+                  </object>
+                </div>
+                <span>Москва, Красная площадь, д. 1</span>
+              </a>
             </address>
 
             <div class="code-snippet">
@@ -434,12 +466,16 @@
             <div class="toggle-wrapper">
               <button
                 type="button"
-                class="toggle-btn active"
+                class="btn-outline-fill toggle-btn active"
                 data-mode="online"
               >
                 Онлайн
               </button>
-              <button type="button" class="toggle-btn" data-mode="offline">
+              <button
+                type="button"
+                class="btn-outline-fill toggle-btn"
+                data-mode="offline"
+              >
                 Офлайн
               </button>
             </div>
@@ -487,20 +523,23 @@
               </div>
 
               <button type="submit" class="submit-btn">
-                Отправить заявку
-                <svg
-                  width="20"
-                  height="20"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                >
-                  <line x1="22" y1="2" x2="11" y2="13"></line>
-                  <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
-                </svg>
+                <div class="svg-wrapper-1">
+                  <div class="svg-wrapper">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 24 24"
+                      width="24"
+                      height="24"
+                    >
+                      <path fill="none" d="M0 0h24v24H0z"></path>
+                      <path
+                        fill="currentColor"
+                        d="M1.946 9.315c-.522-.174-.527-.455.01-.634l19.087-6.362c.529-.176.832.12.684.638l-5.454 19.086c-.15.529-.455.547-.679.045L12 14l6-8-8 6-8.054-2.685z"
+                      ></path>
+                    </svg>
+                  </div>
+                </div>
+                <span>Send</span>
               </button>
             </div>
 
@@ -538,24 +577,24 @@
                   <span>▼</span>
                 </button>
               </div>
-
-              <button type="submit" class="submit-btn">
-                Записаться на приём
-                <svg
-                  width="20"
-                  height="20"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                >
-                  <path
-                    d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"
-                  ></path>
-                  <circle cx="12" cy="10" r="3"></circle>
-                </svg>
+              <button class="submit-btn" type="submit">
+                <div class="svg-wrapper-1">
+                  <div class="svg-wrapper">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 24 24"
+                      width="24"
+                      height="24"
+                    >
+                      <path fill="none" d="M0 0h24v24H0z"></path>
+                      <path
+                        fill="currentColor"
+                        d="M1.946 9.315c-.522-.174-.527-.455.01-.634l19.087-6.362c.529-.176.832.12.684.638l-5.454 19.086c-.15.529-.455.547-.679.045L12 14l6-8-8 6-8.054-2.685z"
+                      ></path>
+                    </svg>
+                  </div>
+                </div>
+                <span>Send</span>
               </button>
             </div>
           </form>
@@ -579,38 +618,12 @@
         </div>
       </section>
       <section class="information_company-section" id="information_company">
-        <a href="./examples/information-company.html" class="about-btn">
-          <div class="about-btn-icon">
-            <svg
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="1.5"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            >
-              <circle cx="9" cy="7" r="3" />
-              <path d="M3 19c0-3.3 2.7-6 6-6h0c1.2 0 2.3.4 3.2 1" />
-              <circle cx="17" cy="10" r="2.5" />
-              <path d="M12.5 19c0-2.5 2-4.5 4.5-4.5s4.5 2 4.5 4.5" />
-            </svg>
-          </div>
-          <div class="about-btn-content">
-            <span class="about-btn-label">// ABOUT</span>
-            <span class="about-btn-title">&lt;О нас /&gt;</span>
-          </div>
-          <div class="about-btn-arrow">
-            <svg
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            >
-              <path d="M5 12h14M12 5l7 7-7 7" />
-            </svg>
-          </div>
+        <a
+          href="./examples/information-company.html"
+          id="about"
+          class="btn-wave"
+        >
+          О нас
         </a>
       </section>
     </main>
@@ -626,9 +639,36 @@
               креативный дизайн. Ваши идеи — наша реализация.
             </p>
             <div class="social-links">
-              <a href="#" class="social-icon">TG</a>
-              <a href="#" class="social-icon">VK</a>
-              <a href="#" class="social-icon">GH</a>
+              <a href="#" class="social-icon">
+                <object
+                  type="image/svg+xml"
+                  data="./assets/icon/icon_tg.svg"
+                  class="icon icon-tg"
+                >
+                  <img
+                    src="./assets/images/icon_tg.png"
+                    alt="иконка Telegram"
+                  />
+                </object>
+              </a>
+              <a href="#" class="social-icon">
+                <object
+                  type="image/svg+xml"
+                  data="./assets/icon/icon_yt.svg"
+                  class="icon icon-yt"
+                >
+                  <img src="./assets/images/icon_yt.png" alt="иконка YouTube" />
+                </object>
+              </a>
+              <a href="#" class="social-icon">
+                <object
+                  type="image/svg+xml"
+                  data="./assets/icon/icon_vk.svg"
+                  class="icon icon-vk"
+                >
+                  <img src="./assets/images/icon_vk.png" alt="иконка VK" />
+                </object>
+              </a>
             </div>
           </div>
 
@@ -637,7 +677,7 @@
             <ul class="footer-links">
               <li><a href="#">Главная</a></li>
               <li><a href="#projects">Проекты</a></li>
-              <li><a href="#about-trigger">О студии</a></li>
+              <li><a href="#about">О студии</a></li>
               <li><a href="#contact">Контакты</a></li>
             </ul>
           </div>
@@ -663,7 +703,9 @@
                 placeholder="email@address.com"
                 class="newsletter-input"
               />
-              <button type="button" class="newsletter-btn">Подписаться</button>
+              <button type="button" class="btn-outline-fill newsletter-btn">
+                Подписаться
+              </button>
             </form>
           </div>
         </div>
