@@ -1383,43 +1383,88 @@
   background-color: var(--secondary-color);
 }
 
-.submit-btn:hover {
-  background-color: var(--secondary-color);
+/* Для десктопа (hover) */
+@media (hover: hover) and (pointer: fine) {
+  .submit-btn:hover {
+    background-color: var(--secondary-color);
+  }
+
+  .submit-btn:hover .svg-wrapper {
+    animation: fly-1 0.6s ease-in-out infinite alternate;
+  }
+
+  .submit-btn:hover svg {
+    transform: translateX(3em) rotate(45deg) scale(1.1);
+  }
+
+  .submit-btn:hover span {
+    transform: translateX(6em);
+  }
 }
 
-.submit-btn:hover .svg-wrapper {
-  animation: fly-1 0.6s ease-in-out infinite alternate;
-}
+/* Для тач-скрин устройств */
+@media (hover: none) and (pointer: coarse) {
+  .submit-btn:active {
+    background-color: var(--secondary-color);
+  }
 
-.submit-btn:hover svg {
-  transform: translateX(3em) rotate(45deg) scale(1.1);
-}
+  .submit-btn:active .svg-wrapper {
+    animation:
+      fly-1 0.6s ease-in-out infinite alternate,
+      stop-animation 2s forwards;
+  }
 
-.submit-btn:hover span {
-  transform: translateX(6em);
+  .submit-btn:active svg {
+    animation: svg-move 2s ease-in-out forwards;
+  }
+
+  .submit-btn:active span {
+    animation: span-move 2s ease-in-out forwards;
+  }
+
+  @keyframes svg-move {
+    0% {
+      transform: translateX(0) rotate(0deg) scale(1);
+    }
+    15% {
+      transform: translateX(3em) rotate(45deg) scale(1.1);
+    }
+    85% {
+      transform: translateX(3em) rotate(45deg) scale(1.1);
+    }
+    100% {
+      transform: translateX(0) rotate(0deg) scale(1);
+    }
+  }
+
+  @keyframes span-move {
+    0% {
+      transform: translateX(0);
+    }
+    15% {
+      transform: translateX(6em);
+    }
+    85% {
+      transform: translateX(6em);
+    }
+    100% {
+      transform: translateX(0);
+    }
+  }
+
+  @keyframes stop-animation {
+    0%,
+    100% {
+      animation-play-state: running;
+    }
+    100% {
+      animation-play-state: paused;
+    }
+  }
 }
 
 .submit-btn:active {
   transform: scale(0.95);
-}
-
-/* Анимация для тач-устройств */
-@media (hover: none) and (pointer: coarse) {
-  .submit-btn.touch-active {
-    background-color: var(--secondary-color);
-  }
-
-  .submit-btn.touch-active .svg-wrapper {
-    animation: fly-1 0.6s ease-in-out infinite alternate;
-  }
-
-  .submit-btn.touch-active svg {
-    transform: translateX(3em) rotate(45deg) scale(1.1);
-  }
-
-  .submit-btn.touch-active span {
-    transform: translateX(6em);
-  }
 }
 
 @keyframes fly-1 {

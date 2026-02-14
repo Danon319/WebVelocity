@@ -266,32 +266,5 @@ document.addEventListener('DOMContentLoaded', () => {
 
     renderCities();
 
-      // Получаем все кнопки с классом submit-btn
-  const touchButtons = document.querySelectorAll('.submit-btn');
-    
-  touchButtons.forEach(button => {
-    let touchTimeout;
-  
-    button.addEventListener('touchstart', function(e) {
-      // Добавляем класс для активации анимации
-      this.classList.add('touch-active');
-      
-      // Очищаем предыдущий таймаут, если он есть
-      if (touchTimeout) {
-        clearTimeout(touchTimeout);
-      }
-      
-      // Устанавливаем таймаут на 2 секунды
-      touchTimeout = setTimeout(() => {
-        this.classList.remove('touch-active');
-      }, 2000);
-    });
-  
-    // Убираем анимацию при отпускании пальца (опционально)
-    button.addEventListener('touchend', function(e) {
-      // Можно раскомментировать, если нужно останавливать сразу при отпускании
-      // clearTimeout(touchTimeout);
-      // this.classList.remove('touch-active');
-    });
-  });
+
 });
