@@ -411,4 +411,45 @@ document.addEventListener('DOMContentLoaded', () => {
 
     updateSlide();
   })();
+    const burgerBtn = document.getElementById('burger-btn');
+    const mobileMenuDropdown = document.getElementById('mobile-menu-dropdown');
+    const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
+    function toggleMobileMenu() {
+      burgerBtn.classList.toggle('active');
+      mobileMenuDropdown.classList.toggle('active');
+      
+      if (mobileMenuDropdown.classList.contains('active')) {
+        document.body.style.overflow = 'hidden';
+      } else {
+        document.body.style.overflow = '';
+      }
+    }
+    if (burgerBtn) {
+      burgerBtn.addEventListener('click', function(e) {
+        e.stopPropagation();
+        toggleMobileMenu();
+      });
+    }
+    mobileNavLinks.forEach(link => {
+      link.addEventListener('click', function() {
+        toggleMobileMenu();
+      });
+    });
+    document.addEventListener('click', function(e) {
+      if (mobileMenuDropdown.classList.contains('active')) {
+        if (!mobileMenuDropdown.contains(e.target) && !burgerBtn.contains(e.target)) {
+          toggleMobileMenu();
+        }
+      }
+    });
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape' && mobileMenuDropdown.classList.contains('active')) {
+        toggleMobileMenu();
+      }
+    });
+    if (mobileMenuDropdown) {
+      mobileMenuDropdown.addEventListener('click', function(e) {
+        e.stopPropagation();
+      });
+    }
 });
