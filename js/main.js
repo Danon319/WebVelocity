@@ -247,11 +247,8 @@ document.addEventListener('DOMContentLoaded', () => {
           service: document.getElementById('service').value,
           message: document.getElementById('message').value
         };
-        console.log('Онлайн заявка:', formData);
-        alert('Онлайн заявка отправлена!\nПроверьте консоль для деталей.');
       } else {
         if (!selectedOffice) {
-          alert('Пожалуйста, выберите офис');
           return;
         }
         const formData = {
@@ -259,12 +256,159 @@ document.addEventListener('DOMContentLoaded', () => {
           phone: document.getElementById('phone').value,
           officeId: selectedOffice.id
         };
-        console.log('Офлайн запись:', formData);
-        alert(`Запись на приём оформлена!\nОфис: ${selectedOffice.name}\nID офиса: ${selectedOffice.id}\nПроверьте консоль для деталей.`);
       }
     });
 
     renderCities();
 
+    // 3. КНОПКА С АНИМАЦИЕЙ ДОСТАВКИ
+    const submitBtns = document.querySelectorAll('.submit-btn');
+    
+    submitBtns.forEach(btn => {
+      btn.addEventListener('click', function(e) {
+        e.preventDefault();
 
+        if (this.classList.contains('animating')) return;
+
+        const btnText = this.querySelector('.btn-text');
+        const initialText = btnText.dataset.initial;
+        const successText = btnText.dataset.success;
+
+        this.classList.add('animating');
+
+        setTimeout(() => {
+          this.classList.add('delivered');
+          btnText.textContent = successText;
+        }, 4000);
+
+        setTimeout(() => {
+          this.classList.remove('animating', 'delivered');
+          btnText.textContent = initialText;
+        }, 6000);
+      });
+    });
+
+    // 4. КАРУСЕЛЬ ПРОЕКТОВ
+  (function() {
+    const track = document.getElementById('projectsTrack');
+    const prevBtn = document.getElementById('prevBtn');
+    const nextBtn = document.getElementById('nextBtn');
+    const mobilePrev = document.querySelector('.mobile-prev');
+    const mobileNext = document.querySelector('.mobile-next');
+    const dotsNav = document.getElementById('dotsNav');
+    const cards = document.querySelectorAll('.project-card');
+
+    let currentIndex = 0;
+    const totalSlides = cards.length;
+    const dots = [];
+
+    for (let i = 0; i < totalSlides; i++) {
+      const dot = document.createElement('div');
+      dot.classList.add('dot');
+      if (i === 0) dot.classList.add('active');
+
+      dot.addEventListener('click', () => {
+        goToSlide(i);
+      });
+
+      dotsNav.appendChild(dot);
+      dots.push(dot);
+    }
+
+    function updateSlide() {
+      const cardWidth = cards[0].offsetWidth;
+      const gap = parseFloat(getComputedStyle(track).gap) || 48;
+      const offset = -(currentIndex * (cardWidth + gap));
+      track.style.transform = `translateX(${offset}px)`;
+
+      dots.forEach((dot, index) => {
+        if (index === currentIndex) {
+          dot.classList.add('active');
+        } else {
+          dot.classList.remove('active');
+        }
+      });
+
+      prevBtn.classList.toggle('disabled', currentIndex === 0);
+      nextBtn.classList.toggle('disabled', currentIndex === totalSlides - 1);
+      if (mobilePrev && mobileNext) {
+        mobilePrev.classList.toggle('disabled', currentIndex === 0);
+        mobileNext.classList.toggle('disabled', currentIndex === totalSlides - 1);
+      }
+    }
+
+    let resizeTimeout;
+    window.addEventListener('resize', () => {
+      clearTimeout(resizeTimeout);
+      resizeTimeout = setTimeout(() => {
+        updateSlide();
+      }, 100);
+    });
+
+    function goToSlide(index) {
+      if (index >= 0 && index < totalSlides) {
+        currentIndex = index;
+        updateSlide();
+      }
+    }
+
+    function prevSlide() {
+      if (currentIndex > 0) {
+        currentIndex--;
+        updateSlide();
+      }
+    }
+
+    function nextSlide() {
+      if (currentIndex < totalSlides - 1) {
+        currentIndex++;
+        updateSlide();
+      }
+    }
+    
+    prevBtn.addEventListener('click', prevSlide);
+    nextBtn.addEventListener('click', nextSlide);
+    
+    if (mobilePrev && mobileNext) {
+      mobilePrev.addEventListener('click', prevSlide);
+      mobileNext.addEventListener('click', nextSlide);
+    }
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowLeft') {
+        e.preventDefault();
+        prevSlide();
+      } else if (e.key === 'ArrowRight') {
+        e.preventDefault();
+        nextSlide();
+      }
+    });
+
+    let touchStartX = 0;
+    let touchEndX = 0;
+
+    track.addEventListener('touchstart', (e) => {
+      touchStartX = e.changedTouches[0].screenX;
+    }, { passive: true });
+
+    track.addEventListener('touchend', (e) => {
+      touchEndX = e.changedTouches[0].screenX;
+      handleSwipe();
+    }, { passive: true });
+
+    function handleSwipe() {
+      const swipeThreshold = 50;
+      const diff = touchStartX - touchEndX;
+
+      if (Math.abs(diff) > swipeThreshold) {
+        if (diff > 0) {
+          nextSlide();
+        } else {
+          prevSlide();
+        }
+      }
+    }
+
+    updateSlide();
+  })();
 });
