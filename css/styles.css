@@ -1971,7 +1971,7 @@
   color: #4ade80;
 }
 
-.terminal-output .highlight {
+.terminal-output .terminal-highlight {
   color: var(--secondary-color);
   word-wrap: break-word;
   overflow-wrap: break-word;

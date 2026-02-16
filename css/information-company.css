@@ -232,6 +232,7 @@ body {
   align-items: center;
   justify-content: center;
   position: relative;
+  gap: 2rem;
 }
 
 .about-container {
@@ -443,6 +444,7 @@ body {
   margin-left: 12px;
   -webkit-animation: blink 1s infinite;
   animation: blink 1s infinite;
+  margin-top: auto;
 }
 
 @-webkit-keyframes blink {
@@ -555,9 +557,6 @@ body {
 
 /* Индикатор прокрутки */
 .scroll-indicator {
-  -webkit-transform: translateX(-50%);
-  -ms-transform: translateX(-50%);
-  transform: translateX(-50%);
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -580,9 +579,9 @@ body {
 }
 
 .scroll-indicator:hover {
-  -webkit-transform: translateX(-50%) translateY(-3px);
-  -ms-transform: translateX(-50%) translateY(-3px);
-  transform: translateX(-50%) translateY(-3px);
+  -webkit-transform: translateY(-3px);
+  -ms-transform: translateY(-3px);
+  transform: translateY(-3px);
 }
 
 .scroll-indicator span {
@@ -2170,8 +2169,7 @@ body {
   }
 
   .slide-nav {
-    left: 10px;
-    gap: 12px;
+    display: none;
   }
   .slide-dot {
     width: 8px;
@@ -2477,9 +2475,6 @@ body {
   .slide {
     padding: 70px 15px 30px;
   }
-  .slide-nav {
-    left: 8px;
-  }
   .slide-dot {
     width: 6px;
     height: 6px;
@@ -2764,9 +2759,6 @@ body {
   .slide {
     padding: 60px 10px 20px;
   }
-  .slide-nav {
-    left: 6px;
-  }
   .slide-dot {
     width: 5px;
     height: 5px;
@@ -3036,9 +3028,6 @@ body {
 @media (max-width: 320px) {
   .slide {
     padding: 55px 8px 15px;
-  }
-  .slide-nav {
-    display: none;
   }
   .page-close-btn {
     top: 8px;
