@@ -303,13 +303,3 @@
                 });
             }, 100);
         });
-
-        document.querySelectorAll('a[href]:not([target="_blank"])').forEach(link => {
-            link.addEventListener('click', (e) => {
-                if (link.hostname === window.location.hostname && !link.closest('.modal-overlay')) {
-                    e.preventDefault();
-                    glitchTransition.classList.add('active');
-                    setTimeout(() => { window.location = link.href; }, 600);
-                }
-            });
-        });

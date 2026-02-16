@@ -1891,16 +1891,90 @@
   color: var(--bg-color);
 }
 
-.code-snippet {
+/* Terminal Box */
+.terminal-box {
+  background: var(--term-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 24px;
+  overflow: hidden;
   margin-top: 3rem;
-  padding: 1.5rem;
-  background: var(--accent-color);
-  border-radius: var(--border-radius);
-  font-family: var(--font-mono);
-  font-size: 0.9rem;
-  border-left: 3px solid var(--secondary-color);
-  color: var(--primary-color);
   text-align: left;
+}
+
+.terminal-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: clamp(12px, 1.5vw, 18px) clamp(16px, 2vw, 24px);
+  background: var(--terminal-header-bg);
+  border-bottom: 1px solid var(--border-color);
+}
+
+.terminal-icon {
+  font-size: clamp(14px, 1.4vw, 18px);
+  color: var(--primary-color);
+  font-weight: bold;
+  flex-shrink: 0;
+}
+
+.terminal-title {
+  font-family: var(--font-mono);
+  font-size: clamp(12px, 1.2vw, 15px);
+  color: var(--term-output-color);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.terminal-body {
+  padding: clamp(18px, 2.5vw, 30px);
+  font-family: var(--font-mono);
+  font-size: clamp(14px, 1.5vw, 18px);
+  line-height: 1.9;
+}
+
+.terminal-line {
+  margin-bottom: 8px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+
+.terminal-line .prompt {
+  color: var(--secondary-color);
+}
+
+.terminal-line .command {
+  color: var(--primary-color);
+}
+
+.terminal-output {
+  color: var(--term-output-color);
+  padding-left: 15px;
+  border-left: 2px solid var(--border-color);
+  margin: 10px 0 10px 5px;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+.terminal-output .key {
+  color: var(--primary-color);
+}
+
+.terminal-output .value {
+  color: var(--text-color);
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+.terminal-output .success {
+  color: #4ade80;
+}
+
+.terminal-output .highlight {
+  color: var(--secondary-color);
+  word-wrap: break-word;
+  overflow-wrap: break-word;
 }
 
 .contact-form {
@@ -3950,6 +4024,34 @@
   .dot.active {
     width: 30px;
   }
+  .terminal-box {
+    margin-top: 2rem;
+    border-radius: 20px;
+  }
+
+  .terminal-header {
+    padding: 14px 18px;
+    gap: 10px;
+  }
+
+  .terminal-icon {
+    font-size: 16px;
+  }
+
+  .terminal-title {
+    font-size: 13px;
+  }
+
+  .terminal-body {
+    padding: 20px 16px;
+    font-size: 15px;
+    line-height: 1.8;
+  }
+
+  .terminal-output {
+    padding-left: 12px;
+    margin: 8px 0 8px 4px;
+  }
 }
 
 /* --- 425px (Mobile) --- */
@@ -4180,6 +4282,34 @@
     height: 50px;
     font-size: 1.25rem;
   }
+  .terminal-header {
+    padding: 12px 16px;
+    gap: 8px;
+  }
+
+  .terminal-icon {
+    font-size: 15px;
+  }
+
+  .terminal-title {
+    font-size: 12px;
+  }
+
+  .terminal-body {
+    padding: 18px 14px;
+    font-size: 14px;
+    line-height: 1.7;
+  }
+
+  .terminal-line {
+    margin-bottom: 6px;
+  }
+
+  .terminal-output {
+    padding-left: 10px;
+    margin: 6px 0 6px 3px;
+    border-left-width: 2px;
+  }
 }
 
 /* средние телефоны */
@@ -4383,5 +4513,44 @@
   .dot.active {
     width: 24px;
     border-width: 1px;
+  }
+  .terminal-box {
+    margin-top: 1.5rem;
+    border-radius: 16px;
+  }
+
+  .terminal-header {
+    padding: 10px 12px;
+    gap: 6px;
+  }
+
+  .terminal-icon {
+    font-size: 14px;
+  }
+
+  .terminal-title {
+    font-size: 11px;
+  }
+
+  .terminal-body {
+    padding: 16px 12px;
+    font-size: 13px;
+    line-height: 1.6;
+  }
+
+  .terminal-line {
+    margin-bottom: 5px;
+  }
+
+  .terminal-output {
+    padding-left: 8px;
+    margin: 5px 0 5px 2px;
+  }
+
+  /* Уменьшаем отступы для ключей на очень маленьких экранах */
+  .terminal-output br {
+    display: block;
+    content: "";
+    margin: 2px 0;
   }
 }

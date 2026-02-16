@@ -42,6 +42,8 @@
   --card-pop-shadow: 0 0 20px rgba(243, 166, 131, 0.1);
   --card-pop-border: var(--secondary-color);
 
+  --terminal-header-bg: rgba(48, 54, 66, 0.5);
+
   /* Settings */
   --border-radius: 12px;
   --font-main: "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
@@ -83,6 +85,7 @@
   --proj-grad-end: rgba(255, 255, 255, 0);
   --proj-title-color: #1a202c;
   --proj-img-filter: brightness(1.05) contrast(1.05);
+  --terminal-header-bg: rgba(203, 213, 225, 0.5);
 
   --modal-bg: rgba(255, 255, 255, 0.98);
   --term-bg: #f1f5f9;

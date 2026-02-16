@@ -623,14 +623,30 @@
                 <span>Москва, Красная площадь, д. 1</span>
               </a>
             </address>
-
-            <div class="code-snippet">
-              <span style="opacity: 0.5">// Status check</span><br />
-              if (project.isReady) {<br />
-              &nbsp;&nbsp;agency.contact(you);<br />
-              &nbsp;&nbsp;return "Awesome Result";<br />
-              }
-            </div>
+            <aside
+              class="terminal-box"
+              aria-label="Терминал Информации о WebVelocity"
+            >
+              <div class="terminal-header">
+                <span class="terminal-icon" aria-hidden="true">▶</span>
+                <span class="terminal-title">~/webvelocity</span>
+              </div>
+              <div class="terminal-body">
+                <div class="terminal-line">
+                  <span class="prompt">$</span>
+                  <span class="command">npm run info</span>
+                </div>
+                <samp class="terminal-output">
+                  <span class="key">mission:</span>
+                  <span class="highlight">"Создаём сайты на результат"</span
+                  ><br />
+                  <span class="key">completed:</span>
+                  <span class="success">87 проектов</span><br />
+                  <span class="key">stack:</span>
+                  <span class="value">["React", "Node.js", "Python"]</span>
+                </samp>
+              </div>
+            </aside>
           </div>
           <form class="contact-form" id="contactForm">
             <div class="toggle-wrapper">
