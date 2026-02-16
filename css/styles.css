@@ -3824,6 +3824,12 @@
     width: calc(100% - 30px);
     max-width: none;
   }
+  .dots-navigation {
+    display: none;
+  }
+  .container-wrapper {
+    padding: 0;
+  }
 }
 
 @media (max-width: 480px) {
