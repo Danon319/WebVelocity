@@ -2821,14 +2821,19 @@
 }
 
 .btn-wave:focus-visible {
-  outline: 2px solid var(--primary-color);
-  outline-offset: 4px;
+  border-color: var(--secondary-color);
+  -webkit-box-shadow: 0 0 30px rgba(243, 166, 131, 0.3);
+  box-shadow: 0 0 30px rgba(243, 166, 131, 0.3);
+  -webkit-transform: var(--btn-translateY);
+  -ms-transform: var(--btn-translateY);
+  transform: var(--btn-translateY);
 }
 
-.btn-wave:disabled {
-  opacity: 0.5;
-  cursor: not-allowed;
-  pointer-events: none;
+.btn-wave:focus-visible::before {
+  opacity: 0.6;
+  -webkit-transform: scale(1.1);
+  -ms-transform: scale(1.1);
+  transform: scale(1.1);
 }
 
 @-webkit-keyframes trigger-delay {

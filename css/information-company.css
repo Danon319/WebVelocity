@@ -649,6 +649,7 @@ body {
   -webkit-box-pack: center;
   -ms-flex-pack: center;
   justify-content: center;
+  align-items: center;
   gap: 30px;
   padding-top: 80px;
   padding-bottom: 40px;
@@ -811,7 +812,6 @@ body {
   align-items: center;
   gap: clamp(15px, 2vw, 30px);
   max-width: 1100px;
-  width: 100%;
   position: absolute;
   bottom: 40px;
   left: 50%;
@@ -827,13 +827,13 @@ body {
   -ms-transform: translateY(-50%);
   transform: translateY(-50%);
   height: 2px;
-  width: calc(50vw - 550px);
-  min-width: 80px;
+  width: 3rem;
+  min-width: 3rem;
   opacity: 0.5;
 }
 
 .tech-line:first-child {
-  left: 0;
+  left: -1rem;
   -webkit-transform: translateY(-50%) translateX(-100%);
   -ms-transform: translateY(-50%) translateX(-100%);
   transform: translateY(-50%) translateX(-100%);
@@ -849,7 +849,7 @@ body {
 }
 
 .tech-line:last-child {
-  right: 0;
+  right: -1rem;
   -webkit-transform: translateY(-50%) translateX(100%);
   -ms-transform: translateY(-50%) translateX(100%);
   transform: translateY(-50%) translateX(100%);
@@ -1281,18 +1281,6 @@ body {
   transform: translateY(-3px);
   -webkit-box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-}
-
-.review-card::before {
-  content: '"';
-  position: absolute;
-  top: 15px;
-  right: 20px;
-  font-size: clamp(50px, 6vw, 80px);
-  font-family: Georgia, serif;
-  color: var(--secondary-color);
-  opacity: 0.15;
-  line-height: 1;
 }
 
 .review-header {
