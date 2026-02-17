@@ -230,7 +230,8 @@
             if (isMobile) {
                 const slide2 = document.getElementById('slide-1');
                 if (slide2) {
-                    slide2.scrollIntoView({ behavior: 'smooth' });
+                    const top = slide2.getBoundingClientRect().top + window.scrollY + 20;
+                    window.scrollTo({ top: top, behavior: 'smooth' });
                 }
             } else {
                 goToSlide(1);
