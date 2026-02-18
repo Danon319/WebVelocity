@@ -32,17 +32,18 @@
                 const isMobile = window.innerWidth <= 768;
                 
                 if (isMobile) {
-                    // На мобильных используем scrollIntoView
                     const targetSlide = document.getElementById('slide-' + slideIndex);
                     if (targetSlide) {
                         targetSlide.scrollIntoView({ behavior: 'smooth' });
                     }
-                    // Обновляем активную точку
                     dots.forEach((d, i) => {
                         d.classList.toggle('active', i === slideIndex);
                     });
+                    if (slideIndex === 1) {
+                        document.querySelector('.slide-stats').classList.add('active');
+                        setTimeout(() => animateCounters(), 400);
+                    }
                 } else {
-                    // На десктопе используем transform
                     goToSlide(slideIndex);
                 }
             });
@@ -230,8 +231,9 @@
             if (isMobile) {
                 const slide2 = document.getElementById('slide-1');
                 if (slide2) {
-                    const top = slide2.getBoundingClientRect().top + window.scrollY + 20;
-                    window.scrollTo({ top: top, behavior: 'smooth' });
+                    slide2.scrollIntoView({ behavior: 'smooth' });
+                    document.querySelector('.slide-stats').classList.add('active');
+                    setTimeout(() => animateCounters(), 400);
                 }
             } else {
                 goToSlide(1);
