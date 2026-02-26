@@ -1,3 +1,11 @@
+// Применяем сохранённую тему при загрузке страницы
+   (function() {
+     const savedTheme = localStorage.getItem('theme');
+     if (savedTheme) {
+       document.documentElement.setAttribute('data-theme', savedTheme);
+     }
+   })();
+
    // Навигация слайдов
         let currentSlide = 0;
         const totalSlides = 2;
