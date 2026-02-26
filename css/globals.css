@@ -15,6 +15,11 @@ html {
   scroll-behavior: smooth;
   scroll-padding-top: 40px;
 }
+
+html #information_company {
+  scroll-margin-top: 60px;
+}
+
 body {
   background-color: var(--bg-color);
   color: var(--text-color);

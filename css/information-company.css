@@ -646,11 +646,7 @@ body {
   -webkit-box-direction: normal;
   -ms-flex-direction: column;
   flex-direction: column;
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  align-items: center;
-  gap: 30px;
+  gap: 0;
   padding-top: 80px;
   padding-bottom: 40px;
 }
@@ -658,12 +654,14 @@ body {
 .stats-grid {
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: 1fr 30px 1fr;
   grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(3, auto);
   gap: 30px;
   max-width: 1100px;
   width: 100%;
   position: relative;
+  margin-top: auto;
+  margin-bottom: auto;
 }
 
 .stat-card {
@@ -812,12 +810,13 @@ body {
   align-items: center;
   gap: clamp(15px, 2vw, 30px);
   max-width: 1100px;
-  position: absolute;
-  bottom: 40px;
-  left: 50%;
-  -webkit-transform: translateX(-50%);
-  -ms-transform: translateX(-50%);
-  transform: translateX(-50%);
+  width: 100%;
+  position: relative;
+  margin-top: 5vw;
+  margin-bottom: 0;
+  -ms-flex-item-align: center;
+  align-self: center;
+  grid-column: span 2;
 }
 
 .tech-line {
@@ -1794,7 +1793,6 @@ body {
   }
   .tech-stack {
     max-width: 1050px;
-    bottom: 35px;
   }
   .logo-bg {
     width: 380px;
@@ -1848,6 +1846,12 @@ body {
     font-size: 15px;
   }
 
+  .slide-stats {
+    padding-top: 80px;
+    padding-bottom: 120px;
+    gap: 30px;
+  }
+
   .stat-card {
     padding: 30px 35px;
     border-radius: 18px;
@@ -1887,7 +1891,7 @@ body {
 
   .tech-tag {
     font-size: 16px;
-    padding: 12px 26px;
+    padding: 16px 32px;
   }
   .tech-line {
     min-width: 80px;
@@ -1918,25 +1922,98 @@ body {
 }
 
 /* 1440px */
+/* При 1440×900 (стандартный ноутбук) базовые clamp-значения давали
+   переполнение +230px на слайде статистики. Этот блок исправляет
+   размеры карточек, типографику и отступы. */
 @media (max-width: 1440px) {
+  /* ── Общий слайд ── */
   .slide {
     padding: 50px;
   }
+
+  /* ── Слайд «О нас» ── */
   .about-container {
     max-width: 900px;
   }
-  .stats-grid {
-    max-width: 1000px;
-    gap: 25px;
+  .description-box {
+    padding: 38px 44px;
   }
-  .tech-stack {
-    max-width: 1000px;
+  .description-box::before {
+    font-size: 13px;
+    top: 18px;
+    left: 30px;
+  }
+  .section-title {
+    font-size: 40px;
+    margin-bottom: 26px;
+  }
+  .description-text {
+    font-size: 18px;
+    line-height: 1.85;
+    margin-bottom: 30px;
   }
   .logo-bg {
     width: 350px;
     height: 350px;
   }
 
+  /* ── Слайд «Статистика»: grid + карточки ──
+     Доступная высота при 900px экране = 780px.
+     Цель: 2 строки карточек (~289px) + gap(22) + tech-stack(74) = 673px → запас 107px. */
+  .stats-grid {
+    max-width: 1000px;
+    gap: 22px;
+  }
+
+  .stat-card {
+    padding: 22px 26px;
+    border-radius: 18px;
+  }
+  .stat-number-bg {
+    font-size: 6rem;
+    top: -15px;
+    right: -8px;
+  }
+  .stat-icon {
+    width: 52px;
+    height: 52px;
+    margin-bottom: 14px;
+    border-radius: 12px;
+  }
+  .stat-icon svg {
+    width: 26px;
+    height: 26px;
+  }
+  .stat-number {
+    font-size: 2.8rem;
+    margin-bottom: 10px;
+  }
+  .stat-label {
+    font-size: 1.15rem;
+    margin-bottom: 8px;
+  }
+  .stat-sublabel {
+    font-size: 0.9rem;
+    line-height: 1.5;
+    margin-bottom: 15px;
+  }
+  .stat-btn {
+    padding: 9px 20px;
+    font-size: 13px;
+  }
+
+  /* ── Стек технологий ──
+     margin-top: auto прижимает к низу, 30px — комфортный зазор. */
+  .tech-stack {
+    max-width: 1000px;
+    margin-top: 30px;
+  }
+  .tech-tag {
+    font-size: 15px;
+    padding: 10px 22px;
+  }
+
+  /* ── Модальные окна ── */
   .modal-header {
     padding: 25px 30px 18px;
   }
@@ -1948,13 +2025,43 @@ body {
   }
 }
 
+/* ===== 1280px — ноутбуки и планшеты ===== */
+@media (max-width: 1280px) {
+  .slide {
+    padding: 45px 50px;
+  }
+  .about-container {
+    max-width: 860px;
+  }
+  .stats-grid {
+    max-width: 960px;
+    gap: 22px;
+  }
+  .tech-stack {
+    max-width: 960px;
+  }
+  .logo-bg {
+    width: 300px;
+    height: 300px;
+  }
+  .description-box {
+    padding: 35px 40px;
+  }
+  .section-title {
+    font-size: 36px;
+  }
+  .description-text {
+    font-size: 17px;
+  }
+}
+
 /* 1024px */
 @media (max-width: 1024px) {
   .slide {
     padding: 40px;
   }
   .slide-about {
-    padding-bottom: 100px;
+    padding-bottom: 40px;
   }
   .slide-nav {
     left: 15px;
@@ -2246,14 +2353,8 @@ body {
   }
 
   .tech-stack {
+    grid-column: span 1;
     max-width: 100%;
-    position: relative;
-    bottom: auto;
-    left: auto;
-    -webkit-transform: none;
-    -ms-transform: none;
-    transform: none;
-    margin-top: auto;
   }
   .tech-line {
     display: none;
@@ -2264,8 +2365,8 @@ body {
     gap: 8px;
   }
   .tech-tag {
-    padding: 9px 16px;
-    font-size: 13px;
+    padding: 12px 22px;
+    font-size: 16px;
   }
 
   .logo-bg {
@@ -2537,8 +2638,8 @@ body {
   }
 
   .tech-tag {
-    padding: 7px 14px;
-    font-size: 12px;
+    padding: 8px 16px;
+    font-size: 13px;
   }
 
   .logo-bg {
@@ -2715,8 +2816,8 @@ body {
   }
 
   .tech-tag {
-    padding: 6px 12px;
-    font-size: 11px;
+    padding: 7px 14px;
+    font-size: 12px;
   }
 
   .modal-title {
@@ -2834,7 +2935,7 @@ body {
     gap: 5px;
   }
   .tech-tag {
-    padding: 6px 12px;
+    padding: 7px 14px;
     font-size: 12px;
   }
 
@@ -3085,8 +3186,8 @@ body {
     gap: 4px;
   }
   .tech-tag {
-    padding: 6px 12px;
-    font-size: 10px;
+    padding: 5px 10px;
+    font-size: 11px;
     border-radius: 15px;
   }
 
@@ -3234,5 +3335,220 @@ body {
     -webkit-transition-duration: 0.01ms !important;
     -o-transition-duration: 0.01ms !important;
     transition-duration: 0.01ms !important;
+  }
+}
+
+/* ===== Планшет/ноутбук 1280px × ≤800px ===== */
+@media (max-width: 1280px) and (max-height: 800px) {
+  .slide {
+    height: auto;
+    min-height: 100vh;
+    padding: 50px 40px 30px;
+  }
+  .slide-about {
+    padding-bottom: 30px;
+  }
+  .slide-stats {
+    padding-top: 55px;
+    padding-bottom: 25px;
+  }
+  .stats-grid {
+    gap: 16px;
+  }
+  .stat-card {
+    padding: 20px 24px;
+    border-radius: 16px;
+  }
+  .stat-number {
+    font-size: clamp(1.8rem, 3.2vw, 2.6rem);
+    margin-bottom: 6px;
+  }
+  .stat-label {
+    font-size: clamp(0.95rem, 1.6vw, 1.2rem);
+  }
+  .stat-sublabel {
+    font-size: clamp(0.8rem, 1.2vw, 0.95rem);
+    margin-bottom: 14px;
+  }
+  .stat-icon {
+    width: 46px;
+    height: 46px;
+    margin-bottom: 12px;
+  }
+  .stat-icon svg {
+    width: 23px;
+    height: 23px;
+  }
+  .stat-btn {
+    padding: 9px 16px;
+    font-size: 11px;
+  }
+  .stat-number-bg {
+    font-size: 5.5rem;
+  }
+  .tech-tag {
+    padding: 8px 16px;
+    font-size: 13px;
+  }
+  .section-title {
+    font-size: clamp(22px, 3.5vw, 34px);
+    margin-bottom: 14px;
+  }
+  .description-text {
+    font-size: clamp(14px, 1.6vw, 17px);
+    line-height: 1.7;
+    margin-bottom: 18px;
+  }
+  .description-box {
+    padding: 28px 32px;
+  }
+  .logo-bg {
+    width: 220px;
+    height: 220px;
+    opacity: 0.05;
+  }
+}
+
+/* ===== iPad landscape / small laptop: ≤1024px × ≤800px ===== */
+@media (max-width: 1024px) and (max-height: 800px) {
+  .slide {
+    height: auto;
+    min-height: 100vh;
+    padding: 50px 30px 25px;
+  }
+  .slide-about {
+    padding-bottom: 25px;
+  }
+  .slide-stats {
+    padding-top: 50px;
+    padding-bottom: 20px;
+  }
+  .stats-grid {
+    gap: 12px;
+  }
+  .stat-card {
+    padding: 16px 20px;
+    border-radius: 14px;
+  }
+  .stat-number {
+    font-size: clamp(1.6rem, 3vw, 2.2rem);
+    margin-bottom: 5px;
+  }
+  .stat-label {
+    font-size: clamp(0.9rem, 1.5vw, 1.1rem);
+  }
+  .stat-sublabel {
+    font-size: clamp(0.75rem, 1.1vw, 0.9rem);
+    margin-bottom: 10px;
+  }
+  .stat-icon {
+    width: 40px;
+    height: 40px;
+    margin-bottom: 10px;
+  }
+  .stat-icon svg {
+    width: 20px;
+    height: 20px;
+  }
+  .stat-btn {
+    padding: 7px 13px;
+    font-size: 10px;
+  }
+  .stat-number-bg {
+    font-size: 4.5rem;
+  }
+  .tech-tag {
+    padding: 7px 13px;
+    font-size: 12px;
+  }
+  .section-title {
+    font-size: clamp(20px, 3vw, 28px);
+    margin-bottom: 12px;
+  }
+  .description-text {
+    font-size: 14px;
+    line-height: 1.6;
+    margin-bottom: 14px;
+  }
+  .description-box {
+    padding: 22px 26px;
+  }
+  .logo-bg {
+    width: 180px;
+    height: 180px;
+    opacity: 0.04;
+  }
+}
+
+/* ===== Любое устройство ≤550px высоты (телефон landscape) ===== */
+@media (max-height: 550px) and (min-width: 600px) {
+  .slide {
+    height: auto;
+    min-height: auto;
+    padding: 48px 25px 20px;
+  }
+  .slide-stats {
+    padding-top: 48px;
+    padding-bottom: 15px;
+  }
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+  .stat-card {
+    padding: 14px 16px;
+    border-radius: 12px;
+  }
+  .stat-number {
+    font-size: 1.6rem;
+    margin-bottom: 4px;
+  }
+  .stat-label {
+    font-size: 0.9rem;
+  }
+  .stat-sublabel {
+    font-size: 0.75rem;
+    margin-bottom: 8px;
+  }
+  .stat-icon {
+    width: 36px;
+    height: 36px;
+    margin-bottom: 8px;
+  }
+  .stat-icon svg {
+    width: 18px;
+    height: 18px;
+  }
+  .stat-number-bg {
+    font-size: 3.5rem;
+  }
+  .stat-btn {
+    padding: 6px 11px;
+    font-size: 9px;
+  }
+  .section-title {
+    font-size: 18px;
+    margin-bottom: 10px;
+  }
+  .description-text {
+    font-size: 13px;
+    line-height: 1.5;
+    margin-bottom: 12px;
+  }
+  .description-box {
+    padding: 18px 20px;
+  }
+  .terminal-box {
+    display: none;
+  }
+  .logo-bg {
+    display: none;
+  }
+  .tech-tag {
+    padding: 6px 11px;
+    font-size: 11px;
+  }
+  .scroll-indicator svg {
+    display: none;
   }
 }
