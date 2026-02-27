@@ -1,3 +1,18 @@
+    (function() {
+        function updateVh() {
+            const h = window.visualViewport ? window.visualViewport.height : window.innerHeight;
+            document.documentElement.style.setProperty('--dvh', (h * 0.01) + 'px');
+        }
+        updateVh();
+        if (window.visualViewport) {
+            window.visualViewport.addEventListener('resize', updateVh);
+        }
+        window.addEventListener('resize', updateVh);
+        window.addEventListener('orientationchange', function() { setTimeout(updateVh, 200); });
+    })();
+
+
+
 // Применяем сохранённую тему при загрузке страницы
    (function() {
      const savedTheme = localStorage.getItem('theme');
