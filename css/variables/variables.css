@@ -61,6 +61,12 @@
   --transition: all 0.3s ease;
   --btn-translateY: translateY(-2px);
   --shadow-soft: 0 10px 40px rgba(0, 0, 0, 0.3);
+
+  --description-box-gradient: background: linear-gradient(
+      135deg,
+      rgba(168, 213, 226, 0.05) 0%,
+      rgba(15, 17, 21, 0.9) 100%
+    );
 }
 
 [data-theme="light"] {
@@ -97,4 +103,10 @@
   --card-pop-bg: linear-gradient(145deg, #ffffff 0%, #f0f7ff 100%);
   --card-pop-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
   --card-pop-border: var(--primary-color);
+
+  --description-box-gradient: background: linear-gradient(
+      135deg,
+      rgba(168, 213, 226, 0.05) 0%,
+      rgba(15, 17, 21, 0.9) 100%
+    );
 }
